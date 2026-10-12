@@ -1,0 +1,259 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Radial (rose) small multiples: records in each month relative to an average month (dashed ring = an average month), for a chosen city. January at 12 o'clock, months run clockwise.",
+  "data": {
+    "url": "data/monthly_records_city_group.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "month": "number",
+        "records": "number",
+        "share_of_year": "number",
+        "index_vs_avg": "number"
+      }
+    }
+  },
+  "params": [
+    {
+      "name": "city",
+      "value": "Melbourne",
+      "bind": {
+        "input": "select",
+        "options": [
+          "Sydney",
+          "Melbourne",
+          "Brisbane",
+          "Perth",
+          "Adelaide",
+          "Canberra",
+          "Hobart",
+          "Darwin"
+        ],
+        "name": "City  "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": "datum.city == city"
+    },
+    {
+      "calculate": "datum.month - 1",
+      "as": "t0"
+    },
+    {
+      "calculate": "datum.month",
+      "as": "t1"
+    }
+  ],
+  "facet": {
+    "column": {
+      "field": "group",
+      "type": "nominal",
+      "sort": [
+        "Birds",
+        "Mammals",
+        "Reptiles",
+        "Insects"
+      ],
+      "header": {
+        "labelFontSize": 14
+      }
+    }
+  },
+  "spacing": 18,
+  "spec": {
+    "width": 218,
+    "height": 218,
+    "encoding": {
+      "theta": {
+        "field": "t0",
+        "type": "quantitative",
+        "scale": {
+          "domain": [
+            0,
+            12
+          ],
+          "range": [
+            0,
+            6.283185
+          ]
+        }
+      },
+      "theta2": {
+        "field": "t1"
+      }
+    },
+    "layer": [
+      {
+        "mark": {
+          "type": "arc",
+          "stroke": "#f5f6f1",
+          "strokeWidth": 1.5,
+          "cornerRadius": 2
+        },
+        "encoding": {
+          "radius": {
+            "field": "index_vs_avg",
+            "type": "quantitative",
+            "scale": {
+              "type": "sqrt",
+              "zero": true,
+              "range": [
+                4,
+                96
+              ],
+              "domain": {
+                "expr": "[0, city == 'Darwin' ? 5 : 2.6]"
+              }
+            }
+          },
+          "color": {
+            "field": "group",
+            "type": "nominal",
+            "scale": {
+              "domain": [
+                "Birds",
+                "Mammals",
+                "Reptiles",
+                "Insects"
+              ],
+              "range": [
+                "#2a78d6",
+                "#e34948",
+                "#1baf7a",
+                "#eda100"
+              ]
+            },
+            "legend": null
+          },
+          "opacity": {
+            "condition": {
+              "test": "datum.index_vs_avg >= 1",
+              "value": 0.95
+            },
+            "value": 0.4
+          },
+          "tooltip": [
+            {
+              "field": "month_name",
+              "title": "Month"
+            },
+            {
+              "field": "group",
+              "title": "Group"
+            },
+            {
+              "field": "records",
+              "title": "Records 2020–24",
+              "format": ","
+            },
+            {
+              "field": "index_vs_avg",
+              "title": "× an average month",
+              "format": ".2f"
+            }
+          ]
+        }
+      },
+      {
+        "transform": [
+          {
+            "filter": "datum.month == 1"
+          },
+          {
+            "calculate": "0",
+            "as": "t0"
+          },
+          {
+            "calculate": "12",
+            "as": "t1"
+          }
+        ],
+        "mark": {
+          "type": "arc",
+          "fill": null,
+          "stroke": "#22211d",
+          "strokeDash": [
+            3,
+            3
+          ],
+          "strokeWidth": 1.2,
+          "tooltip": false
+        },
+        "encoding": {
+          "radius": {
+            "datum": 1,
+            "type": "quantitative"
+          }
+        }
+      },
+      {
+        "transform": [
+          {
+            "filter": "datum.month == 1 || datum.month == 4 || datum.month == 7 || datum.month == 10"
+          },
+          {
+            "calculate": "datum.month - 0.5",
+            "as": "t0"
+          }
+        ],
+        "mark": {
+          "type": "text",
+          "fontSize": 11,
+          "fontWeight": 600,
+          "color": "#8a877e",
+          "radius": 106
+        },
+        "encoding": {
+          "theta2": null,
+          "text": {
+            "field": "month_name"
+          }
+        }
+      }
+    ]
+  },
+  "config": {
+    "font": "Source Sans 3",
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelColor": "#55534d",
+      "titleColor": "#55534d",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "gridColor": "#e1e4da",
+      "domainColor": "#c9c5ba",
+      "tickColor": "#c9c5ba",
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3"
+    },
+    "legend": {
+      "labelColor": "#55534d",
+      "titleColor": "#55534d",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3"
+    },
+    "header": {
+      "labelColor": "#22211d",
+      "labelFontSize": 14,
+      "labelFontWeight": 600,
+      "labelFont": "Source Sans 3",
+      "titleFontSize": 0
+    },
+    "text": {
+      "font": "Source Sans 3",
+      "color": "#55534d"
+    },
+    "tooltip": {
+      "content": "data"
+    }
+  }
+}

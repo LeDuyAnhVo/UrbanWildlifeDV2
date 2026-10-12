@@ -1,0 +1,10 @@
+# YEAR: records per year in the 8 capital-city GCCSAs combined, 2010-2025 (filters: occurrenceStatus PRESENT, spatiallyValid true)
+YEAR|Aves|419065,532017,609235,751536,737250,831741,1042331,1329539,1761354,2025203,2446869,2781412,2707748,3432798,3749042,2859467
+YEAR|Mammalia|11487,16608,26857,34398,37541,114123,31730,39345,49637,54433,69509,79916,59825,79100,74212,66141
+YEAR|Reptilia|4182,4587,6699,8690,7689,9720,9978,10688,13089,12848,16735,19197,22421,24920,31048,33741
+YEAR|Insecta|17664,37524,11267,16071,25829,27743,28777,35413,47162,60879,107406,158950,195057,253185,317974,337461
+# PROVIDERS: top datasets for 8 capital cities, 2020-2024, by group
+DR|Aves|eBird Australia~12754340;BirdLife Australia, Birdata~1408768;iNaturalist Australia~454987;NSW BioNet Atlas~236639;Garden Bird Surveys~80253;Victorian Biodiversity Atlas~51362;Earth Guardians Weekly Feed~29466;SA Fauna~21269
+DR|Mammalia|NSW BioNet Atlas~185902;iNaturalist Australia~55807;Victorian Biodiversity Atlas~24558;SA Fauna~22979;FeralScan~19874;Fauna Atlas N.T.~17468;AWC Ecological Monitoring Surveys~9798;ACT Wildlife Atlas~7107
+DR|Reptilia|iNaturalist Australia~54762;NSW BioNet Atlas~32083;TurtleSAT~11302;Fauna Atlas N.T.~3504;Earth Guardians Weekly Feed~2964;NatureMapr~2533;Victorian Biodiversity Atlas~1816;ACT Wildlife Atlas~1631
+DR|Insecta|iNaturalist Australia~895785;NatureMapr~57436;Earth Guardians Weekly Feed~29322;SA Fauna~10960;International Barcode of Life project (iBOL)~9990;Butterflies Australia~8148;NSW BioNet Atlas~7807;Tasmanian Museum and Art Gallery provider for OZCAM~2342

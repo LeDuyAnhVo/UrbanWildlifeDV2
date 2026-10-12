@@ -1,0 +1,261 @@
+[
+ {
+  "id": "root",
+  "parent": null,
+  "name": "All records",
+  "group": null,
+  "records": null
+ },
+ {
+  "id": "Birds",
+  "parent": "root",
+  "name": "Birds",
+  "group": "Birds",
+  "records": null
+ },
+ {
+  "id": "Mammals",
+  "parent": "root",
+  "name": "Mammals",
+  "group": "Mammals",
+  "records": null
+ },
+ {
+  "id": "Reptiles",
+  "parent": "root",
+  "name": "Reptiles",
+  "group": "Reptiles",
+  "records": null
+ },
+ {
+  "id": "Insects",
+  "parent": "root",
+  "name": "Insects",
+  "group": "Insects",
+  "records": null
+ },
+ {
+  "id": "Birds|eBird Australia",
+  "parent": "Birds",
+  "name": "eBird Australia",
+  "group": "Birds",
+  "records": 12754340
+ },
+ {
+  "id": "Birds|BirdLife Australia, Birdata",
+  "parent": "Birds",
+  "name": "BirdLife Australia, Birdata",
+  "group": "Birds",
+  "records": 1408768
+ },
+ {
+  "id": "Birds|iNaturalist Australia",
+  "parent": "Birds",
+  "name": "iNaturalist Australia",
+  "group": "Birds",
+  "records": 454987
+ },
+ {
+  "id": "Birds|NSW BioNet Atlas",
+  "parent": "Birds",
+  "name": "NSW BioNet Atlas",
+  "group": "Birds",
+  "records": 236639
+ },
+ {
+  "id": "Birds|Garden Bird Surveys",
+  "parent": "Birds",
+  "name": "Garden Bird Surveys",
+  "group": "Birds",
+  "records": 80253
+ },
+ {
+  "id": "Birds|Victorian Biodiversity Atlas",
+  "parent": "Birds",
+  "name": "Victorian Biodiversity Atlas",
+  "group": "Birds",
+  "records": 51362
+ },
+ {
+  "id": "Birds|Earth Guardians Weekly Feed",
+  "parent": "Birds",
+  "name": "Earth Guardians Weekly Feed",
+  "group": "Birds",
+  "records": 29466
+ },
+ {
+  "id": "Birds|SA Fauna",
+  "parent": "Birds",
+  "name": "SA Fauna",
+  "group": "Birds",
+  "records": 21269
+ },
+ {
+  "id": "Mammals|NSW BioNet Atlas",
+  "parent": "Mammals",
+  "name": "NSW BioNet Atlas",
+  "group": "Mammals",
+  "records": 185902
+ },
+ {
+  "id": "Mammals|iNaturalist Australia",
+  "parent": "Mammals",
+  "name": "iNaturalist Australia",
+  "group": "Mammals",
+  "records": 55807
+ },
+ {
+  "id": "Mammals|Victorian Biodiversity Atlas",
+  "parent": "Mammals",
+  "name": "Victorian Biodiversity Atlas",
+  "group": "Mammals",
+  "records": 24558
+ },
+ {
+  "id": "Mammals|SA Fauna",
+  "parent": "Mammals",
+  "name": "SA Fauna",
+  "group": "Mammals",
+  "records": 22979
+ },
+ {
+  "id": "Mammals|FeralScan",
+  "parent": "Mammals",
+  "name": "FeralScan",
+  "group": "Mammals",
+  "records": 19874
+ },
+ {
+  "id": "Mammals|Fauna Atlas N.T.",
+  "parent": "Mammals",
+  "name": "Fauna Atlas N.T.",
+  "group": "Mammals",
+  "records": 17468
+ },
+ {
+  "id": "Mammals|AWC Ecological Monitoring Surveys",
+  "parent": "Mammals",
+  "name": "AWC Ecological Monitoring Surveys",
+  "group": "Mammals",
+  "records": 9798
+ },
+ {
+  "id": "Mammals|ACT Wildlife Atlas",
+  "parent": "Mammals",
+  "name": "ACT Wildlife Atlas",
+  "group": "Mammals",
+  "records": 7107
+ },
+ {
+  "id": "Reptiles|iNaturalist Australia",
+  "parent": "Reptiles",
+  "name": "iNaturalist Australia",
+  "group": "Reptiles",
+  "records": 54762
+ },
+ {
+  "id": "Reptiles|NSW BioNet Atlas",
+  "parent": "Reptiles",
+  "name": "NSW BioNet Atlas",
+  "group": "Reptiles",
+  "records": 32083
+ },
+ {
+  "id": "Reptiles|TurtleSAT",
+  "parent": "Reptiles",
+  "name": "TurtleSAT",
+  "group": "Reptiles",
+  "records": 11302
+ },
+ {
+  "id": "Reptiles|Fauna Atlas N.T.",
+  "parent": "Reptiles",
+  "name": "Fauna Atlas N.T.",
+  "group": "Reptiles",
+  "records": 3504
+ },
+ {
+  "id": "Reptiles|Earth Guardians Weekly Feed",
+  "parent": "Reptiles",
+  "name": "Earth Guardians Weekly Feed",
+  "group": "Reptiles",
+  "records": 2964
+ },
+ {
+  "id": "Reptiles|NatureMapr",
+  "parent": "Reptiles",
+  "name": "NatureMapr",
+  "group": "Reptiles",
+  "records": 2533
+ },
+ {
+  "id": "Reptiles|Victorian Biodiversity Atlas",
+  "parent": "Reptiles",
+  "name": "Victorian Biodiversity Atlas",
+  "group": "Reptiles",
+  "records": 1816
+ },
+ {
+  "id": "Reptiles|ACT Wildlife Atlas",
+  "parent": "Reptiles",
+  "name": "ACT Wildlife Atlas",
+  "group": "Reptiles",
+  "records": 1631
+ },
+ {
+  "id": "Insects|iNaturalist Australia",
+  "parent": "Insects",
+  "name": "iNaturalist Australia",
+  "group": "Insects",
+  "records": 895785
+ },
+ {
+  "id": "Insects|NatureMapr",
+  "parent": "Insects",
+  "name": "NatureMapr",
+  "group": "Insects",
+  "records": 57436
+ },
+ {
+  "id": "Insects|Earth Guardians Weekly Feed",
+  "parent": "Insects",
+  "name": "Earth Guardians Weekly Feed",
+  "group": "Insects",
+  "records": 29322
+ },
+ {
+  "id": "Insects|SA Fauna",
+  "parent": "Insects",
+  "name": "SA Fauna",
+  "group": "Insects",
+  "records": 10960
+ },
+ {
+  "id": "Insects|International Barcode of Life project (iBOL)",
+  "parent": "Insects",
+  "name": "International Barcode of Life project (iBOL)",
+  "group": "Insects",
+  "records": 9990
+ },
+ {
+  "id": "Insects|Butterflies Australia",
+  "parent": "Insects",
+  "name": "Butterflies Australia",
+  "group": "Insects",
+  "records": 8148
+ },
+ {
+  "id": "Insects|NSW BioNet Atlas",
+  "parent": "Insects",
+  "name": "NSW BioNet Atlas",
+  "group": "Insects",
+  "records": 7807
+ },
+ {
+  "id": "Insects|Tasmanian Museum and Art Gallery provider for OZCAM",
+  "parent": "Insects",
+  "name": "Tasmanian Museum and Art Gallery provider for OZCAM",
+  "group": "Insects",
+  "records": 2342
+ }
+]

@@ -1,0 +1,451 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Gridded density map: wildlife records 2020-2024 in 2 km x 2 km cells (0.02 degrees) across Greater Melbourne.",
+  "width": 540,
+  "height": 440,
+  "projection": {
+    "type": "conicEqualArea",
+    "parallels": [
+      -18,
+      -36
+    ],
+    "rotate": [
+      -132,
+      0
+    ]
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/capital_lgas.topo.json",
+        "format": {
+          "type": "topojson",
+          "feature": "lgas"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.properties.city == 'Melbourne'"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "fill": "#e4e7dc",
+        "stroke": "#ffffff",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "tooltip": {
+          "field": "properties.lga",
+          "title": "Local government area"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/melbourne_grid.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "stroke": null
+      },
+      "encoding": {
+        "color": {
+          "field": "properties.records",
+          "type": "quantitative",
+          "scale": {
+            "type": "log",
+            "scheme": "teals",
+            "domain": [
+              1,
+              100000
+            ],
+            "clamp": true
+          },
+          "legend": {
+            "title": "Records per 2 km cell",
+            "format": "~s",
+            "orient": "bottom-right",
+            "gradientLength": 170,
+            "values": [
+              1,
+              10,
+              100,
+              1000,
+              10000,
+              100000
+            ]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "properties.records",
+            "title": "Records 2020–24",
+            "format": ","
+          },
+          {
+            "field": "properties.lat",
+            "title": "Cell centre latitude"
+          },
+          {
+            "field": "properties.lon",
+            "title": "Cell centre longitude"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 144.6,
+            "lat": -38.0
+          },
+          {
+            "lon": 144.98,
+            "lat": -37.82
+          }
+        ]
+      },
+      "mark": {
+        "type": "circle",
+        "size": 260,
+        "fill": null,
+        "stroke": "#22211d",
+        "strokeWidth": 1.6
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 144.6,
+            "lat": -38.0,
+            "t": "Western Treatment Plant, Werribee"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": -20,
+        "dy": 26,
+        "fontWeight": 700,
+        "fontSize": 12,
+        "color": "#ffffff",
+        "stroke": "#ffffff",
+        "strokeWidth": 4,
+        "strokeJoin": "round",
+        "opacity": 0.9
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 144.6,
+            "lat": -38.0,
+            "t": "Western Treatment Plant, Werribee"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": -20,
+        "dy": 26,
+        "fontWeight": 700,
+        "fontSize": 12,
+        "color": "#22211d"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 144.6,
+            "lat": -38.0,
+            "t": "≈160,000 records — a famous birdwatching wetland"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": -20,
+        "dy": 41,
+        "fontSize": 11.5,
+        "color": "#ffffff",
+        "stroke": "#ffffff",
+        "strokeWidth": 4,
+        "strokeJoin": "round",
+        "opacity": 0.9
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 144.6,
+            "lat": -38.0,
+            "t": "≈160,000 records — a famous birdwatching wetland"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": -20,
+        "dy": 41,
+        "fontSize": 11.5,
+        "color": "#55534d"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 144.98,
+            "lat": -37.82,
+            "t": "Royal Botanic Gardens"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -10,
+        "dy": 34,
+        "fontWeight": 700,
+        "fontSize": 12,
+        "color": "#ffffff",
+        "stroke": "#ffffff",
+        "strokeWidth": 4,
+        "strokeJoin": "round",
+        "opacity": 0.9
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 144.98,
+            "lat": -37.82,
+            "t": "Royal Botanic Gardens"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -10,
+        "dy": 34,
+        "fontWeight": 700,
+        "fontSize": 12,
+        "color": "#22211d"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 144.98,
+            "lat": -37.82,
+            "t": "≈97,000 records"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -10,
+        "dy": 49,
+        "fontSize": 11.5,
+        "color": "#ffffff",
+        "stroke": "#ffffff",
+        "strokeWidth": 4,
+        "strokeJoin": "round",
+        "opacity": 0.9
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 144.98,
+            "lat": -37.82,
+            "t": "≈97,000 records"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -10,
+        "dy": 49,
+        "fontSize": 11.5,
+        "color": "#55534d"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "Source Sans 3",
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelColor": "#55534d",
+      "titleColor": "#55534d",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "gridColor": "#e1e4da",
+      "domainColor": "#c9c5ba",
+      "tickColor": "#c9c5ba",
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3"
+    },
+    "legend": {
+      "labelColor": "#55534d",
+      "titleColor": "#55534d",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3"
+    },
+    "header": {
+      "labelColor": "#22211d",
+      "labelFontSize": 14,
+      "labelFontWeight": 600,
+      "labelFont": "Source Sans 3",
+      "titleFontSize": 0
+    },
+    "text": {
+      "font": "Source Sans 3",
+      "color": "#55534d"
+    },
+    "tooltip": {
+      "content": "data"
+    }
+  }
+}

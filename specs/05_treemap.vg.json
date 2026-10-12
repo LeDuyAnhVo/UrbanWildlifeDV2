@@ -1,0 +1,270 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "description": "Treemap: records from the eight capital cities 2020-2024 by contributing dataset, nested in animal group (top 8 datasets per group).",
+  "width": 460,
+  "height": 330,
+  "padding": 2,
+  "autosize": "none",
+  "config": {
+    "text": {
+      "font": "Source Sans 3"
+    },
+    "legend": {
+      "labelFont": "Source Sans 3"
+    }
+  },
+  "signals": [
+    {
+      "name": "scale_mode",
+      "value": "sqrt",
+      "bind": {
+        "input": "radio",
+        "options": [
+          "true",
+          "sqrt"
+        ],
+        "labels": [
+          "True area",
+          "Square-root (show small datasets)"
+        ],
+        "name": "Box size  "
+      }
+    }
+  ],
+  "data": [
+    {
+      "name": "tree",
+      "url": "data/data_providers_tree.json",
+      "transform": [
+        {
+          "type": "formula",
+          "as": "size",
+          "expr": "datum.records == null ? 0 : (scale_mode == 'sqrt' ? sqrt(datum.records) : datum.records)"
+        },
+        {
+          "type": "stratify",
+          "key": "id",
+          "parentKey": "parent"
+        },
+        {
+          "type": "treemap",
+          "field": "size",
+          "sort": {
+            "field": "value",
+            "order": "descending"
+          },
+          "round": true,
+          "method": "squarify",
+          "ratio": 1.4,
+          "paddingInner": 2,
+          "paddingOuter": 0,
+          "paddingTop": {
+            "signal": "18"
+          },
+          "size": [
+            {
+              "signal": "width"
+            },
+            {
+              "signal": "height"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "groups",
+      "source": "tree",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum.depth == 1"
+        }
+      ]
+    },
+    {
+      "name": "leaves",
+      "source": "tree",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum.depth == 2"
+        }
+      ]
+    }
+  ],
+  "scales": [
+    {
+      "name": "color",
+      "type": "ordinal",
+      "domain": [
+        "Birds",
+        "Mammals",
+        "Reptiles",
+        "Insects"
+      ],
+      "range": [
+        "#2a78d6",
+        "#e34948",
+        "#1baf7a",
+        "#eda100"
+      ]
+    }
+  ],
+  "marks": [
+    {
+      "type": "rect",
+      "from": {
+        "data": "groups"
+      },
+      "encode": {
+        "update": {
+          "x": {
+            "field": "x0"
+          },
+          "y": {
+            "field": "y0"
+          },
+          "x2": {
+            "field": "x1"
+          },
+          "y2": {
+            "field": "y1"
+          },
+          "fill": {
+            "value": "#e8ebe2"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "groups"
+      },
+      "encode": {
+        "update": {
+          "x": {
+            "signal": "datum.x0 + 4"
+          },
+          "y": {
+            "signal": "datum.y0 + 13"
+          },
+          "text": {
+            "field": "name"
+          },
+          "fontSize": {
+            "value": 12
+          },
+          "fontWeight": {
+            "value": 700
+          },
+          "fill": {
+            "value": "#22211d"
+          }
+        }
+      }
+    },
+    {
+      "type": "rect",
+      "from": {
+        "data": "leaves"
+      },
+      "encode": {
+        "update": {
+          "x": {
+            "field": "x0"
+          },
+          "y": {
+            "field": "y0"
+          },
+          "x2": {
+            "field": "x1"
+          },
+          "y2": {
+            "field": "y1"
+          },
+          "fill": {
+            "scale": "color",
+            "field": "group"
+          },
+          "stroke": {
+            "value": "#f5f6f1"
+          },
+          "strokeWidth": {
+            "value": 1.5
+          },
+          "cornerRadius": {
+            "value": 3
+          },
+          "fillOpacity": {
+            "value": 0.92
+          },
+          "tooltip": {
+            "signal": "{'Dataset': datum.name, 'Group': datum.group, 'Records': format(datum.records, ',')}"
+          }
+        },
+        "hover": {
+          "fillOpacity": {
+            "value": 0.65
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "leaves"
+      },
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": {
+            "signal": "datum.x0 + 4"
+          },
+          "y": {
+            "signal": "datum.y0 + 13"
+          },
+          "text": {
+            "signal": "(datum.x1 - datum.x0) > 70 && (datum.y1 - datum.y0) > 30 ? (length(datum.name) > (datum.x1 - datum.x0) / 6.5 ? slice(datum.name, 0, floor((datum.x1 - datum.x0) / 6.5) - 1) + '…' : datum.name) : ''"
+          },
+          "fontSize": {
+            "value": 11
+          },
+          "fontWeight": {
+            "value": 600
+          },
+          "fill": {
+            "value": "#ffffff"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "leaves"
+      },
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": {
+            "signal": "datum.x0 + 4"
+          },
+          "y": {
+            "signal": "datum.y0 + 27"
+          },
+          "text": {
+            "signal": "(datum.x1 - datum.x0) > 70 && (datum.y1 - datum.y0) > 40 ? format(datum.records, '.3s') : ''"
+          },
+          "fontSize": {
+            "value": 11
+          },
+          "fill": {
+            "value": "#ffffff"
+          }
+        }
+      }
+    }
+  ]
+}

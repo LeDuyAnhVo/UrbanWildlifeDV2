@@ -1,0 +1,144 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Two waffle charts (100 squares each): share of sightings and share of species by animal group, Australia's major cities, 2020-2024.",
+  "data": {
+    "url": "data/waffle_records_vs_species.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "cell": "number",
+        "col": "number",
+        "row": "number",
+        "group_value": "number",
+        "group_pct": "number"
+      }
+    }
+  },
+  "facet": {
+    "column": {
+      "field": "metric",
+      "type": "nominal",
+      "sort": [
+        "Share of sightings",
+        "Share of species"
+      ],
+      "header": {
+        "labelFontSize": 15,
+        "labelPadding": 10
+      }
+    }
+  },
+  "spacing": 56,
+  "spec": {
+    "width": {
+      "step": 23
+    },
+    "height": {
+      "step": 23
+    },
+    "mark": {
+      "type": "rect",
+      "cornerRadius": 3,
+      "stroke": "#f5f6f1",
+      "strokeWidth": 2.5
+    },
+    "encoding": {
+      "x": {
+        "field": "col",
+        "type": "ordinal",
+        "axis": null
+      },
+      "y": {
+        "field": "row",
+        "type": "ordinal",
+        "axis": null
+      },
+      "color": {
+        "field": "group",
+        "type": "nominal",
+        "scale": {
+          "domain": [
+            "Birds",
+            "Mammals",
+            "Reptiles",
+            "Insects"
+          ],
+          "range": [
+            "#2a78d6",
+            "#e34948",
+            "#1baf7a",
+            "#eda100"
+          ]
+        },
+        "legend": {
+          "title": null,
+          "orient": "bottom",
+          "direction": "horizontal"
+        }
+      },
+      "tooltip": [
+        {
+          "field": "group",
+          "title": "Group"
+        },
+        {
+          "field": "group_pct",
+          "title": "Percent",
+          "format": ".1f"
+        },
+        {
+          "field": "group_value",
+          "title": "Count",
+          "format": ","
+        }
+      ]
+    }
+  },
+  "resolve": {
+    "scale": {
+      "color": "shared"
+    }
+  },
+  "config": {
+    "font": "Source Sans 3",
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelColor": "#55534d",
+      "titleColor": "#55534d",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "gridColor": "#e1e4da",
+      "domainColor": "#c9c5ba",
+      "tickColor": "#c9c5ba",
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3"
+    },
+    "legend": {
+      "labelColor": "#55534d",
+      "titleColor": "#55534d",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3"
+    },
+    "header": {
+      "labelColor": "#22211d",
+      "labelFontSize": 14,
+      "labelFontWeight": 600,
+      "labelFont": "Source Sans 3",
+      "titleFontSize": 0
+    },
+    "text": {
+      "font": "Source Sans 3",
+      "color": "#55534d"
+    },
+    "tooltip": {
+      "content": "data"
+    }
+  }
+}

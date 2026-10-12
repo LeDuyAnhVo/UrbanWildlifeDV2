@@ -1,0 +1,268 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Proportional symbol map: number of species recorded in each capital city, 2020-2024.",
+  "width": 560,
+  "height": 470,
+  "params": [
+    {
+      "name": "grp",
+      "value": "All four groups",
+      "bind": {
+        "input": "select",
+        "name": "Animal group  ",
+        "options": [
+          "All four groups",
+          "Birds",
+          "Mammals",
+          "Reptiles",
+          "Insects"
+        ]
+      }
+    }
+  ],
+  "projection": {
+    "type": "conicEqualArea",
+    "parallels": [
+      -18,
+      -36
+    ],
+    "rotate": [
+      -132,
+      0
+    ]
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/aus_states.topo.json",
+        "format": {
+          "type": "topojson",
+          "feature": "aus_states"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#e4e7dc",
+        "stroke": "#f5f6f1",
+        "strokeWidth": 1.2
+      },
+      "encoding": {
+        "tooltip": {
+          "value": null
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/city_group_summary.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "lat": "number",
+            "lon": "number",
+            "records": "number",
+            "species": "number",
+            "threatened_species": "number",
+            "population_2025": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "grp == 'All four groups' || datum.group == grp"
+        },
+        {
+          "aggregate": [
+            {
+              "op": "sum",
+              "field": "species",
+              "as": "species"
+            },
+            {
+              "op": "sum",
+              "field": "records",
+              "as": "records"
+            },
+            {
+              "op": "sum",
+              "field": "threatened_species",
+              "as": "threatened"
+            },
+            {
+              "op": "max",
+              "field": "population_2025",
+              "as": "population"
+            }
+          ],
+          "groupby": [
+            "city",
+            "lat",
+            "lon"
+          ]
+        },
+        {
+          "calculate": "datum.lon + (datum.city == 'Sydney' ? 3.6 : 0) + (datum.city == 'Melbourne' ? -4.2 : 0) + (datum.city == 'Brisbane' ? 3.8 : 0) + (datum.city == 'Perth' ? -3.6 : 0) + (datum.city == 'Adelaide' ? -2.6 : 0) + (datum.city == 'Canberra' ? 2.4 : 0) + (datum.city == 'Hobart' ? 3.4 : 0) + (datum.city == 'Darwin' ? 0.0 : 0) + 0",
+          "as": "llon"
+        },
+        {
+          "calculate": "datum.lat + (datum.city == 'Sydney' ? 1.3 : 0) + (datum.city == 'Melbourne' ? -2.6 : 0) + (datum.city == 'Brisbane' ? 0.6 : 0) + (datum.city == 'Perth' ? 0.3 : 0) + (datum.city == 'Adelaide' ? 2.6 : 0) + (datum.city == 'Canberra' ? -3.4 : 0) + (datum.city == 'Hobart' ? 0.0 : 0) + (datum.city == 'Darwin' ? 2.7 : 0) + 0",
+          "as": "llat"
+        }
+      ],
+      "layer": [
+        {
+          "mark": {
+            "type": "circle",
+            "opacity": 0.72,
+            "stroke": "#ffffff",
+            "strokeWidth": 2,
+            "color": {
+              "expr": "{'Birds':'#2a78d6','Mammals':'#e34948','Reptiles':'#1baf7a','Insects':'#eda100'}[grp] || '#4b4a45'"
+            }
+          },
+          "encoding": {
+            "longitude": {
+              "field": "lon",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "lat",
+              "type": "quantitative"
+            },
+            "size": {
+              "field": "species",
+              "type": "quantitative",
+              "scale": {
+                "type": "linear",
+                "zero": true,
+                "range": [
+                  0,
+                  3400
+                ]
+              },
+              "legend": {
+                "title": "Species recorded",
+                "orient": "top-left",
+                "symbolFillColor": "#bdb8ab",
+                "symbolStrokeColor": "#ffffff",
+                "format": ",.0f",
+                "direction": "vertical",
+                "tickCount": 3
+              }
+            },
+            "tooltip": [
+              {
+                "field": "city",
+                "title": "City"
+              },
+              {
+                "field": "species",
+                "title": "Species recorded",
+                "format": ","
+              },
+              {
+                "field": "records",
+                "title": "Sightings (records)",
+                "format": ","
+              },
+              {
+                "field": "threatened",
+                "title": "Threatened species recorded"
+              },
+              {
+                "field": "population",
+                "title": "Population (June 2025)",
+                "format": ","
+              }
+            ]
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "fontSize": 13,
+            "fontWeight": 700,
+            "color": "#22211d"
+          },
+          "encoding": {
+            "longitude": {
+              "field": "llon",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "llat",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "city"
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "fontSize": 12,
+            "dy": 14,
+            "color": "#55534d"
+          },
+          "encoding": {
+            "longitude": {
+              "field": "llon",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "llat",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "species",
+              "format": ","
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "config": {
+    "font": "Source Sans 3",
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelColor": "#55534d",
+      "titleColor": "#55534d",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "gridColor": "#e1e4da",
+      "domainColor": "#c9c5ba",
+      "tickColor": "#c9c5ba",
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3"
+    },
+    "legend": {
+      "labelColor": "#55534d",
+      "titleColor": "#55534d",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3"
+    },
+    "header": {
+      "labelColor": "#22211d",
+      "labelFontSize": 14,
+      "labelFontWeight": 600,
+      "labelFont": "Source Sans 3",
+      "titleFontSize": 0
+    },
+    "text": {
+      "font": "Source Sans 3",
+      "color": "#55534d"
+    },
+    "tooltip": {
+      "content": "data"
+    }
+  }
+}

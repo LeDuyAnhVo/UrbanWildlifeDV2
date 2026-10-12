@@ -1,0 +1,222 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Heat map: records per month relative to that city's average month (1 = average), for a chosen animal group, 2020-2024.",
+  "width": {
+    "step": 52
+  },
+  "height": {
+    "step": 32
+  },
+  "data": {
+    "url": "data/monthly_records_city_group.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "month": "number",
+        "records": "number",
+        "share_of_year": "number",
+        "index_vs_avg": "number"
+      }
+    }
+  },
+  "params": [
+    {
+      "name": "grp",
+      "value": "Reptiles",
+      "bind": {
+        "input": "select",
+        "options": [
+          "Birds",
+          "Mammals",
+          "Reptiles",
+          "Insects"
+        ],
+        "name": "Animal group  "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": "datum.group == grp"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "month_name",
+      "type": "ordinal",
+      "sort": [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec"
+      ],
+      "axis": {
+        "title": null,
+        "orient": "top",
+        "labelAngle": 0,
+        "domain": false,
+        "ticks": false,
+        "labelFontSize": 12
+      }
+    },
+    "y": {
+      "field": "city",
+      "type": "nominal",
+      "sort": [
+        "Darwin",
+        "Brisbane",
+        "Perth",
+        "Sydney",
+        "Canberra",
+        "Adelaide",
+        "Melbourne",
+        "Hobart"
+      ],
+      "axis": {
+        "title": null,
+        "domain": false,
+        "ticks": false,
+        "labelFontSize": 12.5,
+        "labelFontWeight": 600,
+        "labelColor": "#22211d",
+        "labelPadding": 6
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rect",
+        "stroke": "#f5f6f1",
+        "strokeWidth": 2,
+        "cornerRadius": 3
+      },
+      "encoding": {
+        "color": {
+          "field": "index_vs_avg",
+          "type": "quantitative",
+          "scale": {
+            "type": "log",
+            "scheme": "blueorange",
+            "domain": [
+              0.25,
+              4
+            ],
+            "domainMid": 1,
+            "clamp": true
+          },
+          "legend": {
+            "title": "× average month",
+            "titleLimit": 220,
+            "orient": "right",
+            "gradientLength": 200,
+            "values": [
+              0.25,
+              0.5,
+              1,
+              2,
+              4
+            ],
+            "format": ".2~f"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "city",
+            "title": "City"
+          },
+          {
+            "field": "month_name",
+            "title": "Month"
+          },
+          {
+            "field": "records",
+            "title": "Records 2020–24",
+            "format": ","
+          },
+          {
+            "field": "share_of_year",
+            "title": "% of the year's records",
+            "format": ".1f"
+          },
+          {
+            "field": "index_vs_avg",
+            "title": "× an average month",
+            "format": ".2f"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.index_vs_avg >= 2 || datum.index_vs_avg <= 0.4"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 10.5,
+        "fontWeight": 600
+      },
+      "encoding": {
+        "text": {
+          "field": "index_vs_avg",
+          "format": ".1f"
+        },
+        "color": {
+          "value": "#ffffff"
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "Source Sans 3",
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelColor": "#55534d",
+      "titleColor": "#55534d",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "gridColor": "#e1e4da",
+      "domainColor": "#c9c5ba",
+      "tickColor": "#c9c5ba",
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3"
+    },
+    "legend": {
+      "labelColor": "#55534d",
+      "titleColor": "#55534d",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3"
+    },
+    "header": {
+      "labelColor": "#22211d",
+      "labelFontSize": 14,
+      "labelFontWeight": 600,
+      "labelFont": "Source Sans 3",
+      "titleFontSize": 0
+    },
+    "text": {
+      "font": "Source Sans 3",
+      "color": "#55534d"
+    },
+    "tooltip": {
+      "content": "data"
+    }
+  }
+}

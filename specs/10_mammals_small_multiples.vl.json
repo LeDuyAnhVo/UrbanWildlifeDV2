@@ -1,0 +1,189 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "padding": {
+    "left": 36,
+    "top": 5,
+    "right": 5,
+    "bottom": 5
+  },
+  "description": "Small multiples: the five most-recorded mammals in each capital, 2020-2024. Grey = introduced species.",
+  "data": {
+    "url": "data/top10_species_city_group.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "rank": "number",
+        "records": "number",
+        "share_of_group_records": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "filter": "datum.group == 'Mammals' && datum.rank <= 5"
+    }
+  ],
+  "facet": {
+    "field": "city",
+    "type": "nominal",
+    "sort": [
+      "Sydney",
+      "Melbourne",
+      "Brisbane",
+      "Perth",
+      "Adelaide",
+      "Canberra",
+      "Hobart",
+      "Darwin"
+    ],
+    "header": {
+      "labelAlign": "left",
+      "labelAnchor": "start"
+    }
+  },
+  "columns": 4,
+  "spacing": {
+    "column": 14,
+    "row": 24
+  },
+  "resolve": {
+    "scale": {
+      "y": "independent",
+      "x": "independent"
+    }
+  },
+  "spec": {
+    "width": 92,
+    "height": 130,
+    "encoding": {
+      "y": {
+        "field": "common_name",
+        "type": "nominal",
+        "sort": {
+          "field": "records",
+          "order": "descending"
+        },
+        "axis": {
+          "title": null,
+          "domain": false,
+          "ticks": false,
+          "labelLimit": 128,
+          "labelFontSize": 11
+        }
+      },
+      "x": {
+        "field": "records",
+        "type": "quantitative",
+        "axis": null
+      }
+    },
+    "layer": [
+      {
+        "mark": {
+          "type": "bar",
+          "cornerRadiusEnd": 4,
+          "height": {
+            "band": 0.72
+          }
+        },
+        "encoding": {
+          "color": {
+            "field": "origin",
+            "type": "nominal",
+            "scale": {
+              "domain": [
+                "Native",
+                "Introduced"
+              ],
+              "range": [
+                "#e34948",
+                "#9b978c"
+              ]
+            },
+            "legend": {
+              "title": null,
+              "orient": "top",
+              "direction": "horizontal"
+            }
+          },
+          "tooltip": [
+            {
+              "field": "common_name",
+              "title": "Mammal"
+            },
+            {
+              "field": "scientific_name",
+              "title": "Scientific name"
+            },
+            {
+              "field": "records",
+              "title": "Records 2020–24",
+              "format": ","
+            },
+            {
+              "field": "origin",
+              "title": "Origin"
+            }
+          ]
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "dx": 4,
+          "fontSize": 11,
+          "color": "#55534d"
+        },
+        "encoding": {
+          "text": {
+            "field": "records",
+            "format": ","
+          }
+        }
+      }
+    ]
+  },
+  "config": {
+    "font": "Source Sans 3",
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelColor": "#55534d",
+      "titleColor": "#55534d",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "gridColor": "#e1e4da",
+      "domainColor": "#c9c5ba",
+      "tickColor": "#c9c5ba",
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3"
+    },
+    "legend": {
+      "labelColor": "#55534d",
+      "titleColor": "#55534d",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3"
+    },
+    "header": {
+      "labelColor": "#22211d",
+      "labelFontSize": 14,
+      "labelFontWeight": 600,
+      "labelFont": "Source Sans 3",
+      "titleFontSize": 0
+    },
+    "text": {
+      "font": "Source Sans 3",
+      "color": "#55534d"
+    },
+    "tooltip": {
+      "content": "data"
+    }
+  }
+}

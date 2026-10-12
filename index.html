@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wild Neighbours — Urban Wildlife in Australia's Capital Cities</title>
+  <meta name="description" content="A data story about the birds, mammals, reptiles and insects living in Australia's eight capital cities, built with Vega-Lite from Atlas of Living Australia and ABS data.">
+  <meta name="author" content="[YOUR NAME]">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.33.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.23.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.29.0"></script>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="kicker">Urban wildlife · Australia's eight capital cities · 2020–2024</p>
+    <h1>Wild Neighbours</h1>
+    <p class="dek">Millions of Australians share their streets with possums, lorikeets, blue-tongues and butterflies.
+      Using 16.6 million wildlife sightings logged by the public and by scientists, this story compares the
+      birds, mammals, reptiles and insects of our capital cities — and shows how wildlife changes as a city gets more crowded.</p>
+    <p class="byline">By <strong>[YOUR NAME]</strong> · FIT3179 Data Visualisation 2, Monash University · October 2026</p>
+    <div class="stats">
+      <div class="stat"><div class="num">16.6M</div><div class="lbl">wildlife records from the eight capitals, 2020–2024</div></div>
+      <div class="stat"><div class="num">10,594</div><div class="lbl">species of bird, mammal, reptile and insect recorded in Australia's major cities</div></div>
+      <div class="stat"><div class="num">129</div><div class="lbl">nationally threatened species recorded in major cities</div></div>
+      <div class="stat"><div class="num">91%</div><div class="lbl">of city sightings are birds — yet birds are only 5% of the species</div></div>
+    </div>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+
+  <section id="reading">
+    <div class="prose">
+      <p class="lede">Every dot of data in this story is a <strong>record</strong>: one animal, seen at one place and time, and
+        logged with the <a href="https://www.ala.org.au/">Atlas of Living Australia</a> — Australia's national biodiversity database.
+        Records come from apps such as eBird and iNaturalist, from bird-club surveys and from government wildlife atlases.</p>
+    </div>
+    <div class="glossary">
+      <div><b>Record (sighting)</b> — one observation of one animal. More people looking means more records, so records measure <em>attention</em> as much as abundance.</div>
+      <div><b>Species recorded</b> — how many different kinds of animal were seen at least once. It is our simple measure of <em>biodiversity</em>.</div>
+      <div><b>Threatened species</b> — species listed as vulnerable, endangered or critically endangered under Australia's national environment law (the EPBC Act).</div>
+      <div><b>Log scale</b> — some charts space their axis by multiples (10, 100, 1,000…) so very small and very large numbers fit on the same chart.</div>
+    </div>
+  </section>
+
+  <!-- =============================== SECTION 1 =============================== -->
+  <section id="cities">
+    <div class="section-head">
+      <p class="section-num">Part 1</p>
+      <h2>Eight cities, thousands of wild neighbours</h2>
+      <p>Australia's capitals are not biological deserts. Between 2020 and 2024, people recorded more than
+        a thousand species in every one of them — and over five thousand in Brisbane.</p>
+    </div>
+
+    <figure>
+      <div class="two-col">
+        <div>
+          <div class="fig-head">
+            <h3>Brisbane, Sydney and Melbourne each host more than 4,500 recorded species</h3>
+            <p>Circle area shows how many species were recorded in each Greater Capital City area. Choose an animal group to compare.</p>
+          </div>
+          <div id="ch-symbol" class="chart"></div>
+          <div class="fig-foot">Map idiom: proportional symbol map on an equal-area (Australian Albers) projection. Data: ALA records 2020–24 within ABS Greater Capital City Statistical Areas; ABS population June 2025 in tooltip. <a href="specs/01_symbol_map.vl.json">Spec (JSON)</a></div>
+        </div>
+        <div>
+          <div class="callout">
+            <p class="bignum">5,532</p>
+            <p><strong>species recorded in Greater Brisbane</strong> — the most of any capital. Subtropical warmth and a large area of bushland
+              inside the city boundary help: Brisbane alone recorded 4,908 insect species.</p>
+            <hr class="soft">
+            <p><strong>Switch to “Reptiles”</strong> and the map changes: Sydney (135 species) and Brisbane (111) lead, while
+              Hobart has just 16 — cold winters suit few reptiles.</p>
+            <hr class="soft">
+            <p style="margin:0"><strong>Darwin</strong> records the fewest species overall (1,392), but it has the smallest population (159,000)
+              and its share of birds and reptiles is the highest of any capital.</p>
+          </div>
+          <span class="hint">Tip: hover over a circle for population and threatened species</span>
+        </div>
+      </div>
+    </figure>
+
+    <figure>
+      <div class="fig-head">
+        <h3>In every city, most recorded species are insects</h3>
+        <p>Each column is a city; its <strong>width</strong> shows the number of species recorded and its coloured blocks show what share belongs to each animal group.
+          Insects make up 68% (Darwin) to 90% (Hobart) of each city's species list.</p>
+      </div>
+      <div id="ch-marimekko" class="chart"></div>
+      <div class="fig-foot">Idiom: Marimekko (variable-width stacked) chart, built with window transforms. Data: ALA, distinct species per class, 2020–24. <a href="specs/02_marimekko.vl.json">Spec (JSON)</a></div>
+    </figure>
+  </section>
+
+  <!-- =============================== SECTION 2 =============================== -->
+  <section id="attention">
+    <div class="section-head">
+      <p class="section-num">Part 2</p>
+      <h2>Birds get the attention; insects make up the diversity</h2>
+      <p>What we record depends on what we notice. Birds are big, loud and active by day, so birdwatchers file
+        millions of records. Insects are small and hard to identify — yet they are where most of the variety lives.</p>
+    </div>
+
+    <figure>
+      <div class="two-col">
+        <div>
+          <div class="fig-head">
+            <h3>91 of every 100 city sightings are birds; 91 of every 100 species are insects</h3>
+            <p>Each square is 1% of all records (left) or of all species (right) across Australia's major cities, 2020–24.</p>
+          </div>
+          <div id="ch-waffle" class="chart"></div>
+          <div class="fig-foot">Idiom: paired waffle charts (100-square unit charts). “Major cities” is the ABS Remoteness Area covering Australia's larger cities, including non-capitals such as Geelong and the Gold Coast. <a href="specs/03_waffle.vl.json">Spec (JSON)</a></div>
+        </div>
+        <div>
+          <div class="callout">
+            <p class="bignum"><span class="g-birds">572</span> vs <span class="g-insects">9,597</span></p>
+            <p><strong>bird species vs insect species</strong> recorded in Australia's major cities. Every bird species was recorded about
+              23,700 times on average; every insect species fewer than 100 times.</p>
+            <p style="margin:0">That gap is an opportunity: a single photo of a beetle on your balcony can add more to scientific knowledge than
+              another sighting of a magpie.</p>
+          </div>
+        </div>
+      </div>
+    </figure>
+
+    <figure>
+      <div class="two-col">
+        <div>
+          <div class="fig-head">
+            <h3>Insect records have grown more than eleven-fold since 2015</h3>
+            <p>Records per year in the eight capitals. On this log scale, a steeper line means faster growth.</p>
+          </div>
+          <div id="ch-years" class="chart"></div>
+          <div class="fig-foot">Idiom: multi-line chart, log scale, legend-click highlight. The dashed 2025 segment is incomplete: some large datasets (notably eBird) reach the Atlas once a year. The 2015 mammal spike comes from a single dataset: NSW BioNet supplied about 105,000 capital-city mammal records that year, against about 20,000 in 2016. <a href="specs/04_records_by_year.vl.json">Spec (JSON)</a></div>
+        </div>
+        <div class="prose" style="padding-top:38px">
+          <p>Between 2015 and 2024, yearly records in the capitals grew
+            <span class="g-insects">11.5× for insects</span>, <span class="g-birds">4.5× for birds</span> and
+            <span class="g-reptiles">3.2× for reptiles</span>.</p>
+          <p>The growth comes from people, not from more animals: smartphone apps make it easy for anyone to photograph a
+            creature and have it identified. That is why the rest of this story compares <em>species counts</em> rather than raw records wherever possible.</p>
+          <span class="hint">Tip: click a group in the legend to highlight it</span>
+        </div>
+      </div>
+    </figure>
+
+    <figure>
+      <div class="two-col even">
+        <div>
+          <div class="fig-head">
+            <h3>Who does the recording?</h3>
+            <p>Records from the capitals, 2020–24, by the dataset that supplied them (top eight per group).</p>
+          </div>
+          <div id="ch-treemap" class="chart"></div>
+          <div class="fig-foot">Idiom: treemap (Vega, squarified layout). The square-root option enlarges small datasets so they can be read; “True area” shows real proportions. <a href="specs/05_treemap.vg.json">Spec (JSON)</a></div>
+        </div>
+        <div class="prose" style="padding-top:38px">
+          <p><strong>eBird Australia</strong>, a birdwatching app, supplied 12.8 million of the 16.6 million capital-city records (77%).</p>
+          <p>For insects the picture is completely different: <strong>iNaturalist Australia</strong>, where anyone can upload a photo of any living thing,
+            supplied 87% of insect records and nearly half of all reptile records.</p>
+          <p>Mammals rely more on government atlases such as <strong>NSW BioNet</strong> — often from professional surveys — and on
+            <strong>FeralScan</strong>, where the public reports pest animals like foxes and rabbits.</p>
+        </div>
+      </div>
+    </figure>
+  </section>
+
+  <!-- =============================== SECTION 3 =============================== -->
+  <section id="gradient">
+    <div class="section-head">
+      <p class="section-num">Part 3</p>
+      <h2>City versus bush: how biodiversity changes as cities grow</h2>
+      <p>If cities attract the most observers, they should record the most species — unless the city itself is pushing some animals out.
+        Comparing cities with the outback, and crowded suburbs with leafy ones, shows that it is.</p>
+    </div>
+
+    <figure>
+      <div class="two-col">
+        <div>
+          <div class="fig-head">
+            <h3>Remote Australia records nearly three times as many reptile species as our cities</h3>
+            <p>Species recorded 2020–24 in the ABS “Major cities” area versus the “Very remote” area (log scale).</p>
+          </div>
+          <div id="ch-slope" class="chart"></div>
+          <div class="fig-foot">Idiom: slope graph. Data: ALA records intersected with ABS Remoteness Areas (2016). Note the areas differ greatly in size. <a href="specs/06_slope.vl.json">Spec (JSON)</a></div>
+        </div>
+        <div class="prose" style="padding-top:38px">
+          <p>Very remote Australia gets only a fraction of the observers — 2.4 million records against 14.9 million in major cities —
+            yet it records more species of <span class="g-reptiles">reptile</span> (738 vs 257),
+            <span class="g-mammals">mammal</span> (247 vs 168) and <span class="g-birds">bird</span> (726 vs 572).</p>
+          <p>It also records more threatened species: 167, compared with 129 in major cities.</p>
+          <p><span class="g-insects">Insects</span> are the exception: so few people photograph insects in the outback that cities still record more.</p>
+          <span class="hint">Tip: hover over a line to isolate it</span>
+        </div>
+      </div>
+    </figure>
+
+    <figure>
+      <div class="fig-head">
+        <h3>The more crowded a council area, the fewer species it records</h3>
+        <p>Left: species recorded in each local government area (LGA) of the chosen city. Right: every capital-city LGA,
+          placing its population density (ABS) against species recorded (ALA). Hover over an area on either side to find it on the other.</p>
+      </div>
+      <div id="ch-choro" class="chart"></div>
+      <div class="fig-foot">Idioms: choropleth map (equal-area projection, single-hue scale) linked to a scatterplot with a straight-line trend fitted on the log scale (dashed).
+        Data: ALA records 2020–24 by ABS LGA (2023 boundaries); ABS estimated resident population, June 2025; LGA areas calculated from ABS 2022 LGA boundaries. Canberra is shown as one area because the ACT has no councils. <a href="specs/07_choropleth_scatter.vl.json">Spec (JSON)</a></div>
+    </figure>
+    <div class="two-col even" style="margin-top:-12px">
+      <div class="callout">
+        On average, council areas with about <strong>30 people per km²</strong> record around <strong>250 bird species</strong>;
+        areas with about <strong>3,000 people per km²</strong> record around <strong>160</strong>. Reptiles follow the same pattern (about 45 vs 20 species).
+      </div>
+      <div class="prose" style="font-size:16.5px;color:var(--ink-2)">
+        In Melbourne, outer areas with wetlands, coast or forest — Wyndham (261 bird species), Mornington Peninsula (252) and
+        Yarra Ranges (245) — top the list, while dense inner suburbs such as Stonnington (114) and Glen Eira (127) record the fewest.
+        Crowded areas are also smaller, which explains part of the gap.
+      </div>
+    </div>
+
+    <figure>
+      <div class="two-col">
+        <div>
+          <div class="fig-head">
+            <h3>Melbourne's wildlife hotspots are wetlands, gardens and creeks</h3>
+            <p>All 4.5 million wildlife records in Greater Melbourne, 2020–24, counted in 2 km × 2 km squares. Darker = more records.</p>
+          </div>
+          <div id="ch-grid" class="chart"></div>
+          <div class="fig-foot">Map idiom: gridded density map (2,614 cells of 0.02°) over ABS LGA boundaries, equal-area projection, log colour scale. <a href="specs/08_melbourne_grid.vl.json">Spec (JSON)</a></div>
+        </div>
+        <div class="prose" style="padding-top:38px">
+          <p>Zooming into one city shows where people actually find wildlife. The single busiest square is the
+            <strong>Western Treatment Plant</strong> at Werribee — a sewage-treatment wetland that is one of Australia's best-known birdwatching sites —
+            with about 160,000 records.</p>
+          <p>Strings of dark squares trace parks, golf courses and creek corridors through the suburbs, and the
+            <strong>Royal Botanic Gardens</strong> in the city centre logged about 97,000 records.</p>
+          <p>Green and blue spaces are where city wildlife survives — and where people go to look for it.</p>
+          <span class="hint">Tip: hover over a square for its record count</span>
+        </div>
+      </div>
+    </figure>
+  </section>
+
+  <!-- =============================== SECTION 4 =============================== -->
+  <section id="character">
+    <div class="section-head">
+      <p class="section-num">Part 4</p>
+      <h2>Every city has its own wild character</h2>
+      <p>A handful of adaptable species are recorded almost everywhere, but each capital also has residents found nowhere else on this list.</p>
+    </div>
+
+    <figure>
+      <div class="fig-head">
+        <h3>The Australian Magpie is a top-10 bird in six capitals — Hobart and Darwin go their own way</h3>
+        <p>Birds that appear in the ten most-recorded birds of at least two capitals. The number is the bird's rank in that city;
+          the dot's size is its share of the city's bird records. Brackets show in how many cities it makes the top 10.</p>
+      </div>
+      <div id="ch-matrix" class="chart"></div>
+      <div class="fig-foot">Idiom: dot matrix (table heat map using size). Hobart shares only two of its top-10 birds with other capitals and Darwin three — Tasmania's and the tropics' own species fill the rest. <a href="specs/09_bird_matrix.vl.json">Spec (JSON)</a></div>
+    </figure>
+
+    <figure>
+      <div class="fig-head">
+        <h3>Melbourne's most-recorded mammal is an introduced deer; Brisbane's is the koala</h3>
+        <p>The five most-recorded mammals in each capital, 2020–24. Grey bars are introduced species.</p>
+      </div>
+      <div id="ch-mammals" class="chart"></div>
+      <div class="fig-foot">Idiom: small multiples of horizontal bar charts (independent scales, so compare ranks within a city rather than bar lengths across cities). Origin (native/introduced) classified by the author. <a href="specs/10_mammals_small_multiples.vl.json">Spec (JSON)</a></div>
+    </figure>
+    <div class="prose">
+      <p>Possums dominate Sydney's list, koalas Brisbane's, and the grey-headed flying-fox Adelaide's. In Darwin, agile wallabies top the
+        list; in Hobart, the eastern barred bandicoot and the endangered Tasmanian devil both make the top seven. But introduced animals are never far away:
+        the <strong>red fox</strong> and the <strong>European rabbit</strong> each appear in the top-10 mammals of six capitals.</p>
+    </div>
+
+    <figure>
+      <div class="two-col">
+        <div>
+          <div class="fig-head">
+            <h3>Sydney recorded 83 nationally threatened species in five years</h3>
+            <p>Threatened species (EPBC Act listed) recorded in each capital, 2020–24, by animal group.</p>
+          </div>
+          <div id="ch-threat" class="chart"></div>
+          <div class="fig-foot">Idiom: stacked bar chart, sorted. Data: ALA records with an EPBC conservation status, 2020–24. <a href="specs/11_threatened.vl.json">Spec (JSON)</a></div>
+        </div>
+        <div class="prose" style="padding-top:38px">
+          <p>Cities are home to some of Australia's most at-risk animals. Every capital recorded at least 29 threatened species,
+            most of them <span class="g-birds">birds</span>.</p>
+          <p>Sydney leads with 83 — including 19 threatened <span class="g-mammals">mammals</span> and 14 threatened
+            <span class="g-reptiles">reptiles</span> — helped by the large national parks inside and around its boundary.</p>
+        </div>
+      </div>
+    </figure>
+  </section>
+
+  <!-- =============================== SECTION 5 =============================== -->
+  <section id="seasons">
+    <div class="section-head">
+      <p class="section-num">Part 5</p>
+      <h2>When the city comes alive</h2>
+      <p>Wildlife sightings follow the seasons. Cold-blooded reptiles and insects disappear in winter, while birds are recorded all year.</p>
+    </div>
+
+    <figure>
+      <div class="fig-head">
+        <h3>In southern cities, reptile and insect records crash in winter; birds barely change</h3>
+        <p>Each wedge is a month (January at the top, running clockwise). The dashed ring marks an average month: wedges beyond it are busier
+          than average, faded wedges are quieter. Choose a city.</p>
+      </div>
+      <div id="ch-radial" class="chart"></div>
+      <div class="fig-foot">Idiom: radial (rose) chart small multiples, square-root radius so wedge area is proportional to value. Data: ALA records by month, 2020–24. <a href="specs/12_radial_seasons.vl.json">Spec (JSON)</a></div>
+    </figure>
+    <div class="two-col even">
+      <div class="callout">In Melbourne, <strong>October and November</strong> each bring about twice the reptile records of an average month,
+        while June and July bring only a fifth. Insect records in December are more than ten times those of July.</div>
+      <div class="prose" style="font-size:16.5px;color:var(--ink-2)">Birds peak in <strong>October</strong> in most capitals (Perth's peak is January) — spring breeding season, and also the month of
+        BirdLife Australia's annual Aussie Backyard Bird Count. Try <strong>Darwin</strong>: its birds peak in the dry season (July–October)
+        and its reptiles do not shut down in winter at all.</div>
+    </div>
+
+    <figure>
+      <div class="fig-head">
+        <h3>From Hobart to Darwin, the reptile season shrinks and then disappears</h3>
+        <p>Records in each month compared with that city's average month (1 = average). Orange = busier than usual, blue = quieter. Cities run from north (top) to south.</p>
+      </div>
+      <div id="ch-heat" class="chart"></div>
+      <div class="fig-foot">Idiom: heat map with a diverging colour scale centred on an average month (log scale, so ×2 and ×½ are equally strong). Data: ALA records by month, 2020–24. <a href="specs/13_season_heatmap.vl.json">Spec (JSON)</a></div>
+    </figure>
+    <div class="prose">
+      <p>Hobart's reptiles are almost invisible from May to August, with records more than twice the average in December and January.
+        Perth's reptile season is short and sharp — October records are 3.4 times an average month. In tropical Darwin there is no winter
+        shutdown; instead, records spike in July.</p>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<section class="closing">
+  <div class="wrap">
+    <h2>Your backyard is part of the data</h2>
+    <p>Our cities hold thousands of species, including threatened ones — but the most crowded suburbs record the fewest, and
+      most of the variety (insects, reptiles) is barely watched. Protecting wetlands, creek corridors and bushland keeps wildlife in our cities.
+      And every photo you upload to <a href="https://www.inaturalist.org/">iNaturalist</a>, or every bird you count in the
+      <a href="https://aussiebirdcount.org.au/">Aussie Backyard Bird Count</a>, ends up in the Atlas of Living Australia and helps scientists see what is changing.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <h3>Data sources</h3>
+    <ol>
+      <li><strong>Atlas of Living Australia (ALA)</strong>, occurrence records via the biocache web service
+        (<a href="https://biocache-ws.ala.org.au/ws/">biocache-ws.ala.org.au</a>), accessed 12 October 2026. Filters: classes Aves, Mammalia, Reptilia, Insecta;
+        years 2020–2024 (2010–2025 for the trend chart); occurrence status “present”; spatially valid records. Counts are facet totals by ABS Greater Capital City Statistical Area 2021,
+        Local Government Area 2023 and Remoteness Area 2016 layers held by the ALA. Records are contributed by many datasets (e.g. eBird Australia, iNaturalist Australia,
+        BirdLife Australia Birdata, NSW BioNet) under their own licences.</li>
+      <li><strong>Australian Bureau of Statistics</strong>, Estimated Resident Population, 30 June 2025, by Greater Capital City Statistical Area and by Local Government Area (2025),
+        via the ABS Data API (<a href="https://data.api.abs.gov.au/">data.api.abs.gov.au</a>, dataflows ERP_LGA2025 and ABS_ANNUAL_ERP_ASGS2021). CC BY 4.0.</li>
+      <li><strong>ABS boundaries</strong> — states and territories, and Local Government Areas (2022) — from the ABS ASGS Edition 3 digital boundary files, as distributed by
+        <a href="https://www.geoboundaries.org/">geoBoundaries</a> (gbOpen AUS ADM1/ADM2). CC BY 4.0. Simplified with mapshaper. “Moreland” renamed “Merri-bek” (2022 name change).</li>
+    </ol>
+    <h3>Notes</h3>
+    <p>Records reflect where and how often people look, not the true number of animals; species counts are less affected but still rise with effort and area.
+      Threatened status is the national EPBC Act listing attached to each record by the ALA. LGA population density = ABS June 2025 population ÷ area computed from boundaries in the Australian Albers (EPSG:3577) projection.
+      All maps use an equal-area conic projection (standard parallels 18°S and 36°S). Every chart's Vega-Lite / Vega specification is in the <code>specs/</code> folder of this repository,
+      and the tidy data files are in <code>data/</code>.</p>
+    <h3>Author, date and use of AI</h3>
+    <p>Created by <strong>[YOUR NAME]</strong>, October 2026, for FIT3179 Data Visualisation (Monash University).
+      Generative AI (Claude, Anthropic) was used to help find and extract the data, draft and test the Vega-Lite specifications, write and proof-read the text, and review the layout.
+      All figures were checked against the source data. Icons and images: none used.</p>
+  </div>
+</footer>
+
+<script>
+  const charts = [
+    ["#ch-symbol", "specs/01_symbol_map.vl.json"],
+    ["#ch-marimekko", "specs/02_marimekko.vl.json"],
+    ["#ch-waffle", "specs/03_waffle.vl.json"],
+    ["#ch-years", "specs/04_records_by_year.vl.json"],
+    ["#ch-treemap", "specs/05_treemap.vg.json"],
+    ["#ch-slope", "specs/06_slope.vl.json"],
+    ["#ch-choro", "specs/07_choropleth_scatter.vl.json"],
+    ["#ch-grid", "specs/08_melbourne_grid.vl.json"],
+    ["#ch-matrix", "specs/09_bird_matrix.vl.json"],
+    ["#ch-mammals", "specs/10_mammals_small_multiples.vl.json"],
+    ["#ch-threat", "specs/11_threatened.vl.json"],
+    ["#ch-radial", "specs/12_radial_seasons.vl.json"],
+    ["#ch-heat", "specs/13_season_heatmap.vl.json"],
+  ];
+  const opts = { renderer: "svg", actions: { export: true, source: true, compiled: false, editor: true } };
+  // wait for the web fonts so Vega measures label widths with the same font it draws with
+  const fontsReady = document.fonts ? Promise.race([document.fonts.ready, new Promise(r => setTimeout(r, 2500))]) : Promise.resolve();
+  fontsReady.then(() => { for (const [el, spec] of charts) {
+    vegaEmbed(el, spec, opts).catch(err => {
+      document.querySelector(el).innerHTML = '<p style="color:#b00">Chart failed to load: ' + err.message + '</p>';
+      console.error(spec, err);
+    });
+  } });
+</script>
+</body>
+</html>

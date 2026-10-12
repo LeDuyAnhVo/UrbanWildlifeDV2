@@ -1,0 +1,259 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Wildlife records per year in the eight capital cities, by animal group (log scale).",
+  "width": 440,
+  "height": 330,
+  "data": {
+    "url": "data/records_by_year_group.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "year": "number",
+        "records": "number",
+        "index_2015": "number"
+      }
+    }
+  },
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "quantitative",
+      "scale": {
+        "domain": [
+          2010,
+          2025
+        ],
+        "nice": false
+      },
+      "axis": {
+        "format": "d",
+        "title": null,
+        "values": [
+          2010,
+          2013,
+          2016,
+          2019,
+          2022,
+          2025
+        ],
+        "grid": false
+      }
+    },
+    "y": {
+      "field": "records",
+      "type": "quantitative",
+      "scale": {
+        "type": "log",
+        "domain": [
+          2000,
+          6000000
+        ]
+      },
+      "axis": {
+        "title": "Records per year (log scale)",
+        "format": "~s",
+        "values": [
+          3000,
+          10000,
+          30000,
+          100000,
+          300000,
+          1000000,
+          3000000
+        ]
+      }
+    },
+    "color": {
+      "field": "group",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Birds",
+          "Mammals",
+          "Reptiles",
+          "Insects"
+        ],
+        "range": [
+          "#2a78d6",
+          "#e34948",
+          "#1baf7a",
+          "#eda100"
+        ]
+      },
+      "legend": {
+        "title": "Click to highlight",
+        "orient": "top",
+        "direction": "horizontal"
+      }
+    },
+    "opacity": {
+      "condition": {
+        "param": "hl",
+        "value": 1
+      },
+      "value": 0.15
+    }
+  },
+  "layer": [
+    {
+      "transform": [
+        {
+          "filter": "datum.year <= 2024"
+        }
+      ],
+      "mark": {
+        "type": "line",
+        "strokeWidth": 2.5
+      },
+      "params": [
+        {
+          "name": "hl",
+          "select": {
+            "type": "point",
+            "fields": [
+              "group"
+            ]
+          },
+          "bind": "legend"
+        }
+      ]
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.year >= 2024"
+        }
+      ],
+      "mark": {
+        "type": "line",
+        "strokeWidth": 2.5,
+        "strokeDash": [
+          4,
+          4
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "size": 40,
+        "opacity": 1
+      },
+      "encoding": {
+        "tooltip": [
+          {
+            "field": "group",
+            "title": "Group"
+          },
+          {
+            "field": "year",
+            "title": "Year"
+          },
+          {
+            "field": "records",
+            "title": "Records",
+            "format": ","
+          },
+          {
+            "field": "partial",
+            "title": "Year incomplete in ALA?"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.year == 2025"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 8,
+        "fontSize": 12,
+        "fontWeight": 600
+      },
+      "encoding": {
+        "text": {
+          "field": "group"
+        },
+        "color": {
+          "value": "#55534d"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "year": 2025,
+            "records": 4300000,
+            "t": "2025 not yet complete"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "fontSize": 11,
+        "fontStyle": "italic",
+        "color": "#8a877e",
+        "dx": 4
+      },
+      "encoding": {
+        "text": {
+          "field": "t"
+        },
+        "color": {
+          "value": "#8a877e"
+        },
+        "opacity": {
+          "value": 1
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "Source Sans 3",
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelColor": "#55534d",
+      "titleColor": "#55534d",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "gridColor": "#e1e4da",
+      "domainColor": "#c9c5ba",
+      "tickColor": "#c9c5ba",
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3"
+    },
+    "legend": {
+      "labelColor": "#55534d",
+      "titleColor": "#55534d",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3"
+    },
+    "header": {
+      "labelColor": "#22211d",
+      "labelFontSize": 14,
+      "labelFontWeight": 600,
+      "labelFont": "Source Sans 3",
+      "titleFontSize": 0
+    },
+    "text": {
+      "font": "Source Sans 3",
+      "color": "#55534d"
+    },
+    "tooltip": {
+      "content": "data"
+    }
+  }
+}
