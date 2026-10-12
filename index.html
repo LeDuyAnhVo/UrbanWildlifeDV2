@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Wild Neighbours — Urban Wildlife in Australia's Capital Cities</title>
+  <title>Urban Wildlife in Australia's Major Cities</title>
   <meta name="description" content="A data story about the birds, mammals, reptiles and insects living in Australia's eight capital cities, built with Vega-Lite from Atlas of Living Australia and ABS data.">
   <meta name="author" content="[YOUR NAME]">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,68 +19,52 @@
 <header class="hero">
   <div class="wrap">
     <h1>Urban Wildlife</h1>
-    <p class="dek">Millions of Australians share their streets with possums, lorikeets, blue-tongues and butterflies.
-      Using 16.6 million wildlife sightings logged by the public and by scientists, this story compares the
-      birds, mammals, reptiles and insects of our capital cities — and shows how wildlife changes as a city gets more crowded.</p>
+    <p class="dek">From possums and lorikeets to blue-tongue lizards and butterflies, wildlife is part of everyday urban life.
+      Between 2020 and 2024, people logged 16.6 million wildlife sightings across eight cities.
+      This story looks at what those sightings tell us: who lives alongside us, how each city is different, and what happens to wildlife as our cities get busier.</p>
     <p class="byline">By Le Duy Anh Vo - FIT3179 Data Visualisation 2</p>
     <div class="stats">
-      <div class="stat"><div class="num">16.6M</div><div class="lbl">wildlife records from the eight capitals, 2020–2024</div></div>
+      <div class="stat"><div class="num">16.6M</div><div class="lbl">wildlife records from the eight cities, 2020-2024</div></div>
       <div class="stat"><div class="num">10,594</div><div class="lbl">species of bird, mammal, reptile and insect recorded in Australia's major cities</div></div>
       <div class="stat"><div class="num">129</div><div class="lbl">nationally threatened species recorded in major cities</div></div>
-      <div class="stat"><div class="num">91%</div><div class="lbl">of city sightings are birds — yet birds are only 5% of the species</div></div>
+      <div class="stat"><div class="num">91%</div><div class="lbl">of city sightings are birds, yet birds are only 5% of the species</div></div>
     </div>
   </div>
 </header>
 
 <main>
 <div class="wrap">
-
-  <section id="reading">
-    <div class="prose">
-      <p class="lede">Every dot of data in this story is a <strong>record</strong>: one animal, seen at one place and time, and
-        logged with the <a href="https://www.ala.org.au/">Atlas of Living Australia</a> — Australia's national biodiversity database.
-        Records come from apps such as eBird and iNaturalist, from bird-club surveys and from government wildlife atlases.</p>
-    </div>
-    <div class="glossary">
-      <div><b>Record (sighting)</b> — one observation of one animal. More people looking means more records, so records measure <em>attention</em> as much as abundance.</div>
-      <div><b>Species recorded</b> — how many different kinds of animal were seen at least once. It is our simple measure of <em>biodiversity</em>.</div>
-      <div><b>Threatened species</b> — species listed as vulnerable, endangered or critically endangered under Australia's national environment law (the EPBC Act).</div>
-      <div><b>Log scale</b> — some charts space their axis by multiples (10, 100, 1,000…) so very small and very large numbers fit on the same chart.</div>
-    </div>
-  </section>
-
+  
   <!-- =============================== SECTION 1 =============================== -->
   <section id="cities">
     <div class="section-head">
       <p class="section-num">Part 1</p>
       <h2>Eight cities, thousands of wild neighbours</h2>
-      <p>Australia's capitals are not biological deserts. Between 2020 and 2024, people recorded more than
-        a thousand species in every one of them — and over five thousand in Brisbane.</p>
+      <p>Our capital cities are full of wildlife. Between 2020 and 2024, people spotted more than
+        a thousand different species in every capital, and more than five thousand in Brisbane.</p>
     </div>
 
     <figure>
       <div class="two-col">
         <div>
           <div class="fig-head">
-            <h3>Brisbane, Sydney and Melbourne each host more than 4,500 recorded species</h3>
-            <p>Circle area shows how many species were recorded in each Greater Capital City area. Choose an animal group to compare.</p>
+            <h3>Brisbane, Sydney and Melbourne each have more than 4,500 species</h3>
+            <p>The bigger the circle, the more species people have seen in that city.</p>
           </div>
           <div id="ch-symbol" class="chart"></div>
-          <div class="fig-foot">Map idiom: proportional symbol map on an equal-area (Australian Albers) projection. Data: ALA records 2020–24 within ABS Greater Capital City Statistical Areas; ABS population June 2025 in tooltip. <a href="specs/01_symbol_map.vl.json">Spec (JSON)</a></div>
         </div>
         <div>
           <div class="callout">
             <p class="bignum">5,532</p>
-            <p><strong>species recorded in Greater Brisbane</strong> — the most of any capital. Subtropical warmth and a large area of bushland
-              inside the city boundary help: Brisbane alone recorded 4,908 insect species.</p>
+            <p><strong>species</strong> were seen in Brisbane, more than in any other capital. Warm weather and large patches of bush inside
+              inside the city likely help. Insects alone make up 4,908 of them.</p>
             <hr class="soft">
-            <p><strong>Switch to “Reptiles”</strong> and the map changes: Sydney (135 species) and Brisbane (111) lead, while
-              Hobart has just 16 — cold winters suit few reptiles.</p>
+            <p><strong>Choose Reptiles</strong> and the picture changes. Sydney (135 species) and Brisbane (111) come out on top, while
+              Hobart has only 16, since few reptiles cope with its cold winters.</p>
             <hr class="soft">
-            <p style="margin:0"><strong>Darwin</strong> records the fewest species overall (1,392), but it has the smallest population (159,000)
-              and its share of birds and reptiles is the highest of any capital.</p>
+            <p style="margin:0"><strong>Darwin</strong> has the fewest species overall (1,392), but it has the smallest population (159,000)
+              and birds and reptiles make up a bigger share of its wildlife than anywhere else.</p>
           </div>
-          <span class="hint">Tip: hover over a circle for population and threatened species</span>
         </div>
       </div>
     </figure>
@@ -88,11 +72,11 @@
     <figure>
       <div class="fig-head">
         <h3>In every city, most recorded species are insects</h3>
-        <p>Each column is a city; its <strong>width</strong> shows the number of species recorded and its coloured blocks show what share belongs to each animal group.
-          Insects make up 68% (Darwin) to 90% (Hobart) of each city's species list.</p>
+        <p>Each column is one city. <strong>width</strong> The wider the column, the more species people have seen there.
+          The coloured blocks show how those species are split between the four animal groups. Insects fill most of every
+          column, from 68% in Darwin up to 90% in Hobart.</p>
       </div>
       <div id="ch-marimekko" class="chart"></div>
-      <div class="fig-foot">Idiom: Marimekko (variable-width stacked) chart, built with window transforms. Data: ALA, distinct species per class, 2020–24. <a href="specs/02_marimekko.vl.json">Spec (JSON)</a></div>
     </figure>
   </section>
 
@@ -100,28 +84,25 @@
   <section id="attention">
     <div class="section-head">
       <p class="section-num">Part 2</p>
-      <h2>Birds get the attention; insects make up the diversity</h2>
-      <p>What we record depends on what we notice. Birds are big, loud and active by day, so birdwatchers file
-        millions of records. Insects are small and hard to identify — yet they are where most of the variety lives.</p>
+      <h2>Birds get noticed, insects make up the diversity</h2>
+      <p>Birds are big, loud and out during the day, so birdwatchers log millions of sightings.
+        Insects are small and hard to identify, yet that is where most of the variety is.</p>
     </div>
 
     <figure>
       <div class="two-col">
         <div>
           <div class="fig-head">
-            <h3>91 of every 100 city sightings are birds; 91 of every 100 species are insects</h3>
-            <p>Each square is 1% of all records (left) or of all species (right) across Australia's major cities, 2020–24.</p>
+            <h3>Birds are 91% of sightings, but insects are 91% of species</h3>
+            <p>Each square is 1%. The left grid shows sightings and the right grid shows species, across Australia’s major cities from 2020 to 2024.</p>
           </div>
           <div id="ch-waffle" class="chart"></div>
-          <div class="fig-foot">Idiom: paired waffle charts (100-square unit charts). “Major cities” is the ABS Remoteness Area covering Australia's larger cities, including non-capitals such as Geelong and the Gold Coast. <a href="specs/03_waffle.vl.json">Spec (JSON)</a></div>
         </div>
         <div>
           <div class="callout">
             <p class="bignum"><span class="g-birds">572</span> vs <span class="g-insects">9,597</span></p>
             <p><strong>bird species vs insect species</strong> recorded in Australia's major cities. Every bird species was recorded about
-              23,700 times on average; every insect species fewer than 100 times.</p>
-            <p style="margin:0">That gap is an opportunity: a single photo of a beetle on your balcony can add more to scientific knowledge than
-              another sighting of a magpie.</p>
+              23,700 times on average. Every insect species fewer than 100 times.</p>
           </div>
         </div>
       </div>
@@ -281,7 +262,7 @@
         <div>
           <div class="fig-head">
             <h3>Sydney recorded 83 nationally threatened species in five years</h3>
-            <p>Threatened species (EPBC Act listed) recorded in each capital, 2020–24, by animal group.</p>
+            <p>Species at risk of extinction under national law, recorded in each capital, 2020-24.</p>
           </div>
           <div id="ch-threat" class="chart"></div>
           <div class="fig-foot">Idiom: stacked bar chart, sorted. Data: ALA records with an EPBC conservation status, 2020–24. <a href="specs/11_threatened.vl.json">Spec (JSON)</a></div>
