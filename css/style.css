@@ -164,3 +164,12 @@ footer code { font-size: 13px; background: var(--surface-2); padding: 1px 4px; b
   .two-col, .two-col.even { grid-template-columns: minmax(0, 1fr); }
   .glossary { grid-template-columns: minmax(0, 1fr); }
 }
+
+/* ---------- circle / line view toggle for the seasonal chart ---------- */
+.view-toggle { display: flex; gap: 8px; margin-bottom: 16px; }
+.view-toggle button {
+  font: inherit; font-size: 14px; font-weight: 600; padding: 6px 14px; border-radius: 999px; cursor: pointer;
+  border: 1px solid var(--accent); background: transparent; color: var(--accent);
+}
+.view-toggle button.active { background: var(--accent); color: #fff; }
+.view-toggle button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
