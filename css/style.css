@@ -75,7 +75,8 @@ a:focus-visible, select:focus-visible, input:focus-visible { outline: 2px solid 
 .stat .lbl { font-size: 15px; color: #cfcabd; line-height: 1.35; margin-top: 4px; }
 
 /* ---------- body text ---------- */
-section { padding: 40px 0 8px; }
+section { padding: 72px 0 24px; scroll-margin-top: 64px; }
+section + section { border-top: 1px solid var(--rule); }
 .section-head { max-width: var(--text-w); }
 .section-num {
   font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin: 0 0 6px;
@@ -98,8 +99,8 @@ p { margin: 0 0 16px; }
 .g-insects { color: #a87100; font-weight: 700; }    /* darker step of the insect hue for text contrast */
 
 /* ---------- figures ---------- */
-figure { margin: 28px 0 36px; }
-.fig-head { max-width: var(--text-w); margin-bottom: 10px; }
+figure { margin: 44px 0 56px; }
+.fig-head { max-width: var(--text-w); margin-bottom: 20px; }
 .fig-head p { font-size: 16.5px; color: var(--ink-2); margin: 0; }
 .chart { width: 100%; overflow: visible; }
 .chart.center { display: flex; justify-content: center; }
@@ -113,7 +114,7 @@ figcaption, .fig-foot {
 }
 
 .two-col {
-  display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 36px; align-items: start;
+  display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 56px; align-items: start;
 }
 .two-col.even { grid-template-columns: 1fr 1fr; }
 .callout {
