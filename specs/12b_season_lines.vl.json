@@ -1,0 +1,97 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Line chart: for a chosen city, sightings in each month relative to that group's average month (1 = average, log scale), one line per animal group.",
+  "width": 860,
+  "height": 320,
+  "padding": {"left": 5, "top": 5, "bottom": 5, "right": 20},
+  "data": {
+    "url": "data/monthly_records_city_group.csv",
+    "format": {
+      "type": "csv",
+      "parse": {"month": "number", "records": "number", "share_of_year": "number", "index_vs_avg": "number"}
+    }
+  },
+  "params": [{"name": "city", "value": "Melbourne"}],
+  "transform": [{"filter": "datum.city == city"}],
+  "encoding": {
+    "x": {
+      "field": "month",
+      "type": "ordinal",
+      "axis": {
+        "title": "Month",
+        "labelAngle": 0,
+        "labelFontSize": 12,
+        "grid": false,
+        "labelExpr": "['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][datum.value - 1]"
+      }
+    },
+    "y": {
+      "field": "index_vs_avg",
+      "type": "quantitative",
+      "scale": {"type": "log", "domain": [0.025, 5]},
+      "axis": {
+        "title": "× an average month (log scale)",
+        "titlePadding": 10,
+        "values": [0.05, 0.1, 0.25, 0.5, 1, 2, 4],
+        "labelExpr": "datum.value + '×'"
+      }
+    },
+    "color": {
+      "field": "group",
+      "type": "nominal",
+      "scale": {
+        "domain": ["Birds", "Mammals", "Reptiles", "Insects"],
+        "range": ["#2a78d6", "#e34948", "#1baf7a", "#eda100"]
+      },
+      "legend": {"title": "Click to highlight", "orient": "top", "direction": "horizontal"}
+    },
+    "opacity": {"condition": {"param": "hl", "value": 1}, "value": 0.15}
+  },
+  "layer": [
+    {
+      "mark": {"type": "rule", "color": "#22211d", "strokeDash": [4, 4], "strokeWidth": 1.2},
+      "encoding": {"y": {"datum": 1}, "x": null, "color": null, "opacity": null}
+    },
+    {
+      "mark": {"type": "line", "strokeWidth": 2.5},
+      "params": [{"name": "hl", "select": {"type": "point", "fields": ["group"]}, "bind": "legend"}]
+    },
+    {
+      "mark": {"type": "circle", "size": 45, "opacity": 1},
+      "encoding": {
+        "tooltip": [
+          {"field": "month_name", "title": "Month"},
+          {"field": "group", "title": "Group"},
+          {"field": "records", "title": "Records 2020–24", "format": ","},
+          {"field": "index_vs_avg", "title": "× an average month", "format": ".2f"}
+        ]
+      }
+    },
+    {
+      "transform": [{"filter": "datum.month == 1 && datum.group == 'Birds'"}],
+      "mark": {"type": "text", "align": "left", "dx": -20, "fontSize": 11.5, "fontStyle": "italic"},
+      "encoding": {
+        "y": {"datum": 0.035},
+        "text": {"value": "Dashed line = an average month. Above it = busier than usual"},
+        "color": {"value": "#55534d"},
+        "opacity": {"value": 1}
+      }
+    }
+  ],
+  "config": {
+    "font": "Source Sans 3",
+    "background": null,
+    "view": {"stroke": null},
+    "axis": {
+      "labelColor": "#55534d", "titleColor": "#55534d", "labelFontSize": 12, "titleFontSize": 12,
+      "titleFontWeight": 600, "gridColor": "#e1e4da", "domainColor": "#c9c5ba", "tickColor": "#c9c5ba",
+      "labelFont": "Source Sans 3", "titleFont": "Source Sans 3"
+    },
+    "legend": {
+      "labelColor": "#55534d", "titleColor": "#55534d", "labelFontSize": 12, "titleFontSize": 12,
+      "titleFontWeight": 600, "labelFont": "Source Sans 3", "titleFont": "Source Sans 3"
+    },
+    "text": {"font": "Source Sans 3", "color": "#55534d"},
+    "tooltip": {"content": "data"}
+  }
+}

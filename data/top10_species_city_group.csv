@@ -1,0 +1,321 @@
+city,group,rank,scientific_name,common_name,records,share_of_group_records,origin
+Sydney,Birds,1,Trichoglossus moluccanus,Rainbow Lorikeet,126425,4.61,Native
+Sydney,Birds,2,Manorina melanocephala,Noisy Miner,106233,3.88,Native
+Sydney,Birds,3,Gymnorhina tibicen,Australian Magpie,90353,3.3,Native
+Sydney,Birds,4,Cacatua galerita,Sulphur-crested Cockatoo,79137,2.89,Native
+Sydney,Birds,5,Corvus coronoides,Australian Raven,74861,2.73,Native
+Sydney,Birds,6,Strepera graculina,Pied Currawong,64803,2.36,Native
+Sydney,Birds,7,Dacelo novaeguineae,Laughing Kookaburra,62153,2.27,Native
+Sydney,Birds,8,Hirundo neoxena,Welcome Swallow,60225,2.2,Native
+Sydney,Birds,9,Threskiornis moluccus,Australian White Ibis,55548,2.03,Native
+Sydney,Birds,10,Cracticus torquatus,Grey Butcherbird,52130,1.9,Native
+Sydney,Mammals,1,Pseudocheirus peregrinus,Common Ringtail Possum,38661,19.11,Native
+Sydney,Mammals,2,Trichosurus vulpecula,Common Brushtail Possum,33836,16.72,Native
+Sydney,Mammals,3,Phascolarctos cinereus,Koala,22003,10.87,Native
+Sydney,Mammals,4,Vulpes vulpes,Fox,8669,4.28,Introduced
+Sydney,Mammals,5,Rattus fuscipes,Bush Rat,8380,4.14,Native
+Sydney,Mammals,6,Oryctolagus cuniculus,Rabbit,7755,3.83,Introduced
+Sydney,Mammals,7,Macropus giganteus,Eastern Grey Kangaroo,6598,3.26,Native
+Sydney,Mammals,8,Pteropus poliocephalus,Grey-headed Flying-fox,6530,3.23,Native
+Sydney,Mammals,9,Wallabia bicolor,Swamp Wallaby,5115,2.53,Native
+Sydney,Mammals,10,Perameles nasuta,Long-nosed Bandicoot,4701,2.32,Native
+Sydney,Reptiles,1,Tiliqua scincoides,Eastern Blue-tongue,13193,26.12,Native
+Sydney,Reptiles,2,Intellagama lesueurii,Water Dragon,5361,10.61,Native
+Sydney,Reptiles,3,Pseudechis porphyriacus,Red-bellied Black Snake,4575,9.06,Native
+Sydney,Reptiles,4,Chelodina longicollis,Snake-necked Turtle,3412,6.76,Native
+Sydney,Reptiles,5,Morelia spilota,Carpet Python,3395,6.72,Native
+Sydney,Reptiles,6,Eulamprus quoyii,Eastern Water-skink,2272,4.5,Native
+Sydney,Reptiles,7,Varanus varius,Lace Monitor,1888,3.74,Native
+Sydney,Reptiles,8,Dendrelaphis punctulatus,Green Tree Snake,1305,2.58,Native
+Sydney,Reptiles,9,Pseudonaja textilis,Common Brown Snake,1145,2.27,Native
+Sydney,Reptiles,10,Lampropholis delicata,Dark-flecked Garden Sunskink,1118,2.21,Native
+Sydney,Insects,1,Apis mellifera,European Honey Bee,1743,1.11,Introduced
+Sydney,Insects,2,Pristhesancus plagipennis,Assassin Bug,1351,0.86,Native
+Sydney,Insects,3,Pieris rapae,Cabbage White Butterfly,1191,0.76,Introduced
+Sydney,Insects,4,Psaltoda plaga,Black Prince,1191,0.76,Native
+Sydney,Insects,5,Cyclochila australasiae,Greengrocer (green Form),1184,0.75,Native
+Sydney,Insects,6,Aleeta curvicosta,Aleeta curvicosta,1067,0.68,Native
+Sydney,Insects,7,Cyclocephala signaticollis,Cyclocephala signaticollis,928,0.59,Introduced
+Sydney,Insects,8,Yoyetta celis,Cicada,883,0.56,Native
+Sydney,Insects,9,Papilio aegeus,Large Citrus Butterfly,873,0.55,Native
+Sydney,Insects,10,Heteronympha merope,Common Brown,752,0.48,Native
+Melbourne,Birds,1,Gymnorhina tibicen,Australian Magpie,162446,3.91,Native
+Melbourne,Birds,2,Trichoglossus moluccanus,Rainbow Lorikeet,134810,3.24,Native
+Melbourne,Birds,3,Corvus mellori,Little Raven,131107,3.16,Native
+Melbourne,Birds,4,Manorina melanocephala,Noisy Miner,121691,2.93,Native
+Melbourne,Birds,5,Anthochaera carunculata,Red Wattlebird,120188,2.89,Native
+Melbourne,Birds,6,Grallina cyanoleuca,Magpie-lark,113511,2.73,Native
+Melbourne,Birds,7,Acridotheres tristis,Common Myna,103631,2.49,Introduced
+Melbourne,Birds,8,Spilopelia chinensis,Spotted Turtle-dove,94895,2.28,Introduced
+Melbourne,Birds,9,Hirundo neoxena,Welcome Swallow,85856,2.07,Native
+Melbourne,Birds,10,Anas superciliosa,Pacific Black Duck,85269,2.05,Native
+Melbourne,Mammals,1,Cervus unicolor,Sambar,6747,13.53,Introduced
+Melbourne,Mammals,2,Vulpes vulpes,Fox,4919,9.86,Introduced
+Melbourne,Mammals,3,Wallabia bicolor,Swamp Wallaby,4797,9.62,Native
+Melbourne,Mammals,4,Macropus giganteus,Eastern Grey Kangaroo,4740,9.5,Native
+Melbourne,Mammals,5,Pseudocheirus peregrinus,Common Ringtail Possum,3594,7.21,Native
+Melbourne,Mammals,6,Tachyglossus aculeatus,Short-beaked Echidna,2958,5.93,Native
+Melbourne,Mammals,7,Trichosurus vulpecula,Common Brushtail Possum,2455,4.92,Native
+Melbourne,Mammals,8,Oryctolagus cuniculus,Rabbit,2323,4.66,Introduced
+Melbourne,Mammals,9,Vombatus ursinus,Bare-nosed Wombat,1717,3.44,Native
+Melbourne,Mammals,10,Petauroides volans,Southern Greater Glider,1351,2.71,Native
+Melbourne,Reptiles,1,Tiliqua scincoides,Eastern Blue-tongue,1303,11.12,Native
+Melbourne,Reptiles,2,Lampropholis guichenoti,Pale-flecked Garden Sunskink,1120,9.56,Native
+Melbourne,Reptiles,3,Christinus marmoratus,Marbled Gecko,987,8.43,Native
+Melbourne,Reptiles,4,Chelodina longicollis,Snake-necked Turtle,827,7.06,Native
+Melbourne,Reptiles,5,Tiliqua nigrolutea,Southern Blue-tongue,821,7.01,Native
+Melbourne,Reptiles,6,Saproscincus mustelinus,Weasel Skink,654,5.58,Native
+Melbourne,Reptiles,7,Notechis scutatus,Tiger Snake,604,5.16,Native
+Melbourne,Reptiles,8,Austrelaps superbus,Lowland Copperhead,553,4.72,Native
+Melbourne,Reptiles,9,Eulamprus tympanum,Southern Water-skink,474,4.05,Native
+Melbourne,Reptiles,10,Amphibolurus muricatus,Jacky Lizard,454,3.88,Native
+Melbourne,Insects,1,Heteronympha merope,Common Brown,5412,1.64,Native
+Melbourne,Insects,2,Apis mellifera,European Honey Bee,3547,1.08,Introduced
+Melbourne,Insects,3,Vanessa kershawi,Australian Painted Lady,2549,0.77,Native
+Melbourne,Insects,4,Harmonia conformis,Common Spotted Ladybird,2481,0.75,Native
+Melbourne,Insects,5,Pieris rapae,Cabbage White Butterfly,2168,0.66,Introduced
+Melbourne,Insects,6,Ocybadistes walkeri,Green Grass-dart,2046,0.62,Native
+Melbourne,Insects,7,Pseudomantis albofimbriata,Pseudomantis albofimbriata,1923,0.58,Native
+Melbourne,Insects,8,Zizina otis,Grass Blue,1876,0.57,Native
+Melbourne,Insects,9,Melangyna viridiceps,Hover Fly,1745,0.53,Native
+Melbourne,Insects,10,Vanessa itea,Yellow Admiral,1694,0.51,Native
+Brisbane,Birds,1,Corvus orru,Torresian Crow,113099,2.98,Native
+Brisbane,Birds,2,Manorina melanocephala,Noisy Miner,103084,2.72,Native
+Brisbane,Birds,3,Trichoglossus moluccanus,Rainbow Lorikeet,101629,2.68,Native
+Brisbane,Birds,4,Gymnorhina tibicen,Australian Magpie,83258,2.19,Native
+Brisbane,Birds,5,Hirundo neoxena,Welcome Swallow,77651,2.05,Native
+Brisbane,Birds,6,Grallina cyanoleuca,Magpie-lark,72687,1.92,Native
+Brisbane,Birds,7,Rhipidura leucophrys,Willie Wagtail,70409,1.86,Native
+Brisbane,Birds,8,Vanellus miles,Masked Lapwing,68848,1.81,Native
+Brisbane,Birds,9,Threskiornis moluccus,Australian White Ibis,67857,1.79,Native
+Brisbane,Birds,10,Dacelo novaeguineae,Laughing Kookaburra,67826,1.79,Native
+Brisbane,Mammals,1,Phascolarctos cinereus,Koala,15144,51.68,Native
+Brisbane,Mammals,2,Trichosurus vulpecula,Common Brushtail Possum,2296,7.84,Native
+Brisbane,Mammals,3,Pseudocheirus peregrinus,Common Ringtail Possum,1542,5.26,Native
+Brisbane,Mammals,4,Macropus giganteus,Eastern Grey Kangaroo,1078,3.68,Native
+Brisbane,Mammals,5,Pteropus alecto,Black Flying-fox,1037,3.54,Native
+Brisbane,Mammals,6,Notamacropus rufogriseus,Red-necked Wallaby,913,3.12,Native
+Brisbane,Mammals,7,Pteropus poliocephalus,Grey-headed Flying-fox,620,2.12,Native
+Brisbane,Mammals,8,Wallabia bicolor,Swamp Wallaby,605,2.06,Native
+Brisbane,Mammals,9,Tachyglossus aculeatus,Short-beaked Echidna,542,1.85,Native
+Brisbane,Mammals,10,Vulpes vulpes,Fox,445,1.52,Introduced
+Brisbane,Reptiles,1,Intellagama lesueurii,Water Dragon,4180,23.23,Native
+Brisbane,Reptiles,2,Morelia spilota,Carpet Python,1391,7.73,Native
+Brisbane,Reptiles,3,Emydura macquarii,Macquarie River Turtle,1005,5.59,Native
+Brisbane,Reptiles,4,Varanus varius,Lace Monitor,994,5.52,Native
+Brisbane,Reptiles,5,Hemidactylus frenatus,House Gecko,910,5.06,Introduced
+Brisbane,Reptiles,6,Cryptoblepharus pulcher,Elegant Snake-eyed Skink,799,4.44,Native
+Brisbane,Reptiles,7,Pogona barbata,Common Bearded Dragon,745,4.14,Native
+Brisbane,Reptiles,8,Tiliqua scincoides,Eastern Blue-tongue,642,3.57,Native
+Brisbane,Reptiles,9,Eulamprus quoyii,Eastern Water-skink,597,3.32,Native
+Brisbane,Reptiles,10,Dendrelaphis punctulatus,Green Tree Snake,561,3.12,Native
+Brisbane,Insects,1,Euploea corinna,Oleander Butterfly,2799,1.04,Native
+Brisbane,Insects,2,Melanitis leda,Common Evening-brown,2347,0.87,Native
+Brisbane,Insects,3,Orthetrum caledonicum,Blue Skimmer,2004,0.74,Native
+Brisbane,Insects,4,Papilio aegeus,Large Citrus Butterfly,1861,0.69,Native
+Brisbane,Insects,5,Diplacodes bipunctata,Wandering Percher,1851,0.69,Native
+Brisbane,Insects,6,Ischnura heterosticta,Common Bluetail,1733,0.64,Native
+Brisbane,Insects,7,Orthetrum villosovittatum,Fiery Skimmer,1555,0.58,Native
+Brisbane,Insects,8,Valanga irregularis,Giant Grasshopper,1528,0.57,Native
+Brisbane,Insects,9,Diplacodes haematodes,Scarlet Percher,1459,0.54,Native
+Brisbane,Insects,10,Suniana sunias,Wide-brand Grass-dart,1296,0.48,Native
+Perth,Birds,1,Corvus coronoides,Australian Raven,43495,4.03,Native
+Perth,Birds,2,Anthochaera carunculata,Red Wattlebird,33757,3.13,Native
+Perth,Birds,3,Gymnorhina tibicen,Australian Magpie,33552,3.11,Native
+Perth,Birds,4,Rhipidura leucophrys,Willie Wagtail,32707,3.03,Native
+Perth,Birds,5,Gavicalis virescens,Singing Honeyeater,27045,2.51,Native
+Perth,Birds,6,Trichoglossus moluccanus,Rainbow Lorikeet,26675,2.47,Native
+Perth,Birds,7,Eolophus roseicapilla,Galah,26673,2.47,Native
+Perth,Birds,8,Anas superciliosa,Pacific Black Duck,24228,2.24,Native
+Perth,Birds,9,Lichmera indistincta,Brown Honeyeater,23373,2.16,Native
+Perth,Birds,10,Zosterops lateralis,Silvereye,22660,2.1,Native
+Perth,Mammals,1,Bettongia penicillata,Woylie,3014,22.01,Native
+Perth,Mammals,2,Macropus fuliginosus,Western Grey Kangaroo,1794,13.1,Native
+Perth,Mammals,3,Notamacropus eugenii,Tammar Wallaby,1431,10.45,Native
+Perth,Mammals,4,Oryctolagus cuniculus,Rabbit,1427,10.42,Introduced
+Perth,Mammals,5,Isoodon fusciventer,Southwestern Brown Bandicoot,1343,9.81,Native
+Perth,Mammals,6,Trichosurus vulpecula,"Koomal, Kumari",1271,9.28,Native
+Perth,Mammals,7,Vulpes vulpes,Fox,837,6.11,Introduced
+Perth,Mammals,8,Tachyglossus aculeatus,Short-beaked Echidna,808,5.9,Native
+Perth,Mammals,9,Mus musculus,House Mouse,531,3.88,Introduced
+Perth,Mammals,10,Rattus rattus,Black Rat,222,1.62,Introduced
+Perth,Reptiles,1,Chelodina oblonga,Northern Snake-necked Turtle,3946,30.48,Native
+Perth,Reptiles,2,Tiliqua rugosa,Bobtail,987,7.62,Native
+Perth,Reptiles,3,Cryptoblepharus buchananii,Buchanan’s Snake-eyed Skink,548,4.23,Native
+Perth,Reptiles,4,Christinus marmoratus,Marbled Gecko,426,3.29,Native
+Perth,Reptiles,5,Egernia kingii,King's Skink,326,2.52,Native
+Perth,Reptiles,6,Hemiergis quadrilineata,Two-toed Earless Skink,171,1.32,Native
+Perth,Reptiles,7,Pogona minor,Dwarf Bearded Dragon,159,1.23,Native
+Perth,Reptiles,8,Notechis scutatus,Tiger Snake,126,0.97,Native
+Perth,Reptiles,9,Varanus gouldii,Gould's Goanna,119,0.92,Native
+Perth,Reptiles,10,Pseudonaja affinis,Dugite,114,0.88,Native
+Perth,Insects,1,Apis mellifera,European Honey Bee,607,1.57,Introduced
+Perth,Insects,2,Vanessa kershawi,Australian Painted Lady,338,0.87,Native
+Perth,Insects,3,Orthetrum caledonicum,Blue Skimmer,331,0.86,Native
+Perth,Insects,4,Diplacodes bipunctata,Wandering Percher,305,0.79,Native
+Perth,Insects,5,Phrissogonus laticostata,Geometer Moth,283,0.73,Native
+Perth,Insects,6,Valanga irregularis,Giant Grasshopper,279,0.72,Native
+Perth,Insects,7,Dasypodia selenophora,Granny Moth,257,0.66,Native
+Perth,Insects,8,Ardices glatignyi,Ardices glatignyi,224,0.58,Native
+Perth,Insects,9,Archimantis sobrina,Large Brown Mantid,222,0.57,Native
+Perth,Insects,10,Danaus plexippus,Monarch,206,0.53,Native
+Adelaide,Birds,1,Gymnorhina tibicen,Australian Magpie,22876,3.95,Native
+Adelaide,Birds,2,Trichoglossus moluccanus,Rainbow Lorikeet,19281,3.33,Native
+Adelaide,Birds,3,Phylidonyris novaehollandiae,New Holland Honeyeater,16579,2.86,Native
+Adelaide,Birds,4,Grallina cyanoleuca,Magpie-lark,16203,2.8,Native
+Adelaide,Birds,5,Anthochaera carunculata,Red Wattlebird,15563,2.69,Native
+Adelaide,Birds,6,Corvus mellori,Little Raven,14910,2.57,Native
+Adelaide,Birds,7,Malurus cyaneus,Superb Fairy-wren,14007,2.42,Native
+Adelaide,Birds,8,Platycercus elegans,Crimson Rosella,13785,2.38,Native
+Adelaide,Birds,9,Eolophus roseicapilla,Galah,13442,2.32,Native
+Adelaide,Birds,10,Manorina melanocephala,Noisy Miner,13381,2.31,Native
+Adelaide,Mammals,1,Pteropus poliocephalus,Grey-headed Flying-fox,10969,33.02,Native
+Adelaide,Mammals,2,Macropus fuliginosus,Black-faced Kangaroo,3991,12.01,Native
+Adelaide,Mammals,3,Phascolarctos cinereus,Koala,2586,7.78,Native
+Adelaide,Mammals,4,Vulpes vulpes,Fox,2230,6.71,Introduced
+Adelaide,Mammals,5,Rattus fuscipes,Bush Rat,1767,5.32,Native
+Adelaide,Mammals,6,Antechinus flavipes,Yellow-footed Antechinus,1123,3.38,Native
+Adelaide,Mammals,7,Isoodon obesulus,Southern Brown Bandicoot (eastern),1075,3.24,Native
+Adelaide,Mammals,8,Trichosurus vulpecula,Common Brushtail Possum,1040,3.13,Native
+Adelaide,Mammals,9,Oryctolagus cuniculus,Rabbit,988,2.97,Introduced
+Adelaide,Mammals,10,Tachyglossus aculeatus,Short-beaked Echidna,940,2.83,Native
+Adelaide,Reptiles,1,Christinus marmoratus,Marbled Gecko,751,11.02,Native
+Adelaide,Reptiles,2,Tiliqua rugosa,Bobtail,729,10.7,Native
+Adelaide,Reptiles,3,Tiliqua scincoides,Eastern Blue-tongue,540,7.92,Native
+Adelaide,Reptiles,4,Eulamprus quoyii,Eastern Water-skink,521,7.64,Native
+Adelaide,Reptiles,5,Lampropholis guichenoti,Pale-flecked Garden Sunskink,474,6.95,Native
+Adelaide,Reptiles,6,Hemiergis decresiensis,Three-toed Earless Skink,448,6.57,Native
+Adelaide,Reptiles,7,Emydura macquarii,Macquarie River Turtle,356,5.22,Native
+Adelaide,Reptiles,8,Ctenophorus decresii,Tawny Dragon,316,4.64,Native
+Adelaide,Reptiles,9,Pseudonaja textilis,Common Brown Snake,316,4.64,Native
+Adelaide,Reptiles,10,Pogona barbata,Common Bearded Dragon,314,4.61,Native
+Adelaide,Insects,1,Apis mellifera,European Honey Bee,1953,2.08,Introduced
+Adelaide,Insects,2,Danaus plexippus,Monarch,1084,1.15,Native
+Adelaide,Insects,3,Heteronympha merope,Common Brown,1079,1.15,Native
+Adelaide,Insects,4,Vanessa kershawi,Australian Painted Lady,731,0.78,Native
+Adelaide,Insects,5,Zizina otis,Grass Blue,678,0.72,Native
+Adelaide,Insects,6,Hemicordulia tau,Tau Emerald,670,0.71,Native
+Adelaide,Insects,7,Ocybadistes walkeri,Green Grass-dart,621,0.66,Native
+Adelaide,Insects,8,Harmonia conformis,Common Spotted Ladybird,611,0.65,Native
+Adelaide,Insects,9,Ardices glatignyi,Ardices glatignyi,581,0.62,Native
+Adelaide,Insects,10,Pieris rapae,Cabbage White Butterfly,570,0.61,Introduced
+Hobart,Birds,1,Corvus tasmanicus,Forest Raven,24504,4.93,Native
+Hobart,Birds,2,Malurus cyaneus,Superb Fairy-wren,16652,3.35,Native
+Hobart,Birds,3,Turdus merula,Eurasian Blackbird,15377,3.09,Introduced
+Hobart,Birds,4,Vanellus miles,Masked Lapwing,15345,3.09,Native
+Hobart,Birds,5,Nesoptilotis flavicollis,Yellow-throated Honeyeater,14669,2.95,Native
+Hobart,Birds,6,Rhipidura albiscapa,Tasmanian Grey Fantail,14648,2.95,Native
+Hobart,Birds,7,Acanthiza pusilla,Brown Thornbill,13412,2.7,Native
+Hobart,Birds,8,Platycercus caledonicus,Green Rosella,13317,2.68,Native
+Hobart,Birds,9,Anthochaera paradoxa,Yellow Wattlebird,12799,2.57,Native
+Hobart,Birds,10,Larus dominicanus,Kelp Gull,12321,2.48,Native
+Hobart,Mammals,1,Notamacropus rufogriseus,Red-necked Wallaby,372,12.82,Native
+Hobart,Mammals,2,Tachyglossus aculeatus,Short-beaked Echidna,330,11.37,Native
+Hobart,Mammals,3,Thylogale billardierii,Tasmanian Pademelon,322,11.1,Native
+Hobart,Mammals,4,Perameles gunnii,Eastern Barred Bandicoot,261,8.99,Native
+Hobart,Mammals,5,Trichosurus vulpecula,Tasmanian Brushtail Possum,235,8.1,Native
+Hobart,Mammals,6,Oryctolagus cuniculus,Rabbit,192,6.62,Introduced
+Hobart,Mammals,7,Sarcophilus harrisii,Tasmanian Devil,188,6.48,Native
+Hobart,Mammals,8,Ornithorhynchus anatinus,Platypus,171,5.89,Native
+Hobart,Mammals,9,Pseudocheirus peregrinus,Common Ringtail Possum,171,5.89,Native
+Hobart,Mammals,10,Felis catus,Cat,158,5.44,Introduced
+Hobart,Reptiles,1,Carinascincus metallicus,Metallic Cool-skink,118,24.95,Native
+Hobart,Reptiles,2,Tiliqua nigrolutea,Southern Blue-tongue,80,16.91,Native
+Hobart,Reptiles,3,Carinascincus ocellatus,Ocellated Skink,73,15.43,Native
+Hobart,Reptiles,4,Notechis scutatus,Tiger Snake,24,5.07,Native
+Hobart,Reptiles,5,Rankinia diemensis,Mountain Dragon,24,5.07,Native
+Hobart,Reptiles,6,Carinascincus microlepidotus,Boulder Cool-skink,23,4.86,Native
+Hobart,Reptiles,7,Carinascincus pretiosus,Agile Cool-skink,20,4.23,Native
+Hobart,Reptiles,8,Liopholis whitii,White's Skink,20,4.23,Native
+Hobart,Reptiles,9,Austrelaps superbus,Lowland Copperhead,17,3.59,Native
+Hobart,Reptiles,10,Drysdalia coronoides,White-lipped Snake,9,1.9,Native
+Hobart,Insects,1,Lamprima aurata,Golden Stag Beetle,376,1.26,Native
+Hobart,Insects,2,Doratifera oxleyi,Painted Cup Moth,164,0.55,Native
+Hobart,Insects,3,Dasygaster padockina,Tasmanian Cutworm Moth,151,0.5,Native
+Hobart,Insects,4,Heteronympha merope,Common Brown,144,0.48,Native
+Hobart,Insects,5,Bombus terrestris,Bombus terrestris,140,0.47,Introduced
+Hobart,Insects,6,Epyaxa subidaria,Subidaria Moth,132,0.44,Native
+Hobart,Insects,7,Acyphas semiochrea,Moth,121,0.4,Native
+Hobart,Insects,8,Poecilasthena pulchraria,Geometer Moth,115,0.38,Native
+Hobart,Insects,9,Anthela acuta,Lappet Moth,110,0.37,Native
+Hobart,Insects,10,Agrotis porphyricollis,Owlet Moth,104,0.35,Native
+Darwin,Birds,1,Geopelia humeralis,Bar-shouldered Dove,21468,3.47,Native
+Darwin,Birds,2,Grallina cyanoleuca,Magpie-lark,16837,2.72,Native
+Darwin,Birds,3,Stomiopera unicolor,White-gaped Honeyeater,16016,2.59,Native
+Darwin,Birds,4,Vanellus miles,Masked Lapwing,15106,2.44,Native
+Darwin,Birds,5,Lichmera indistincta,Brown Honeyeater,14791,2.39,Native
+Darwin,Birds,6,Geopelia placida,Peaceful Dove,14250,2.3,Native
+Darwin,Birds,7,Merops ornatus,Rainbow Bee-eater,13804,2.23,Native
+Darwin,Birds,8,Trichoglossus rubritorquis,Red-collared Lorikeet,13550,2.19,Native
+Darwin,Birds,9,Megapodius reinwardt,Orange-footed Scrubfowl,11560,1.87,Native
+Darwin,Birds,10,Sphecotheres vieilloti,Australasian Figbird,11415,1.85,Native
+Darwin,Mammals,1,Notamacropus agilis,Agile Wallaby,8228,45.77,Native
+Darwin,Mammals,2,Trichosurus vulpecula,Northern Brushtail Possum,3891,21.65,Native
+Darwin,Mammals,3,Isoodon macrourus,Northern Brown Bandicoot,3575,19.89,Native
+Darwin,Mammals,4,Sus scrofa,Pig,579,3.22,Introduced
+Darwin,Mammals,5,Mesembriomys gouldii,Djintamoonga,324,1.8,Native
+Darwin,Mammals,6,Felis catus,Cat,297,1.65,Introduced
+Darwin,Mammals,7,Bubalus bubalis,Swamp Buffalo,207,1.15,Introduced
+Darwin,Mammals,8,Canis familiaris,Dingo,190,1.06,Native
+Darwin,Mammals,9,Rattus rattus,Black Rat,153,0.85,Introduced
+Darwin,Mammals,10,Melomys burtoni,Grassland Melomys,149,0.83,Native
+Darwin,Reptiles,1,Crocodylus porosus,Saltwater Crocodile,2732,47.39,Native
+Darwin,Reptiles,2,Tropicagama temporalis,Swamplands Lashtail,459,7.96,Native
+Darwin,Reptiles,3,Carlia sexdentata,Six-toothed Rainbow-skink,181,3.14,Native
+Darwin,Reptiles,4,Hemidactylus frenatus,House Gecko,114,1.98,Introduced
+Darwin,Reptiles,5,Varanus scalaris,Spotted Tree Monitor,98,1.7,Native
+Darwin,Reptiles,6,Liasis fuscus,Water Python,89,1.54,Native
+Darwin,Reptiles,7,Chlamydosaurus kingii,Frilled Lizard,87,1.51,Native
+Darwin,Reptiles,8,Varanus mertensi,Mertens' Water Monitor,85,1.47,Native
+Darwin,Reptiles,9,Carlia rufilatus,Red-sided Rainbow-skink,78,1.35,Native
+Darwin,Reptiles,10,Crocodylus johnstoni,Freshwater Crocodile,74,1.28,Native
+Darwin,Insects,1,Neurothemis stigmatizans,Painted Grasshawk Dragonfly,356,2.5,Native
+Darwin,Insects,2,Diplacodes trivialis,Chalky Percher,335,2.35,Native
+Darwin,Insects,3,Orthetrum sabina,Slender Skimmer,233,1.64,Native
+Darwin,Insects,4,Oecophylla smaragdina,Green Tree Ant,224,1.57,Native
+Darwin,Insects,5,Euploea corinna,Oleander Butterfly,189,1.33,Native
+Darwin,Insects,6,Danaus affinis,Marsh Tiger,181,1.27,Native
+Darwin,Insects,7,Brachydiplax denticauda,Palemouth,177,1.24,Native
+Darwin,Insects,8,Ceriagrion aeruginosum,Redtail,167,1.17,Native
+Darwin,Insects,9,Tramea loewii,Common Glider,155,1.09,Native
+Darwin,Insects,10,Rhyothemis graphiptera,Graphic Flutterer,152,1.07,Native
+Canberra,Birds,1,Gymnorhina tibicen,Australian Magpie,68974,4.17,Native
+Canberra,Birds,2,Cacatua galerita,Sulphur-crested Cockatoo,56499,3.42,Native
+Canberra,Birds,3,Grallina cyanoleuca,Magpie-lark,56009,3.39,Native
+Canberra,Birds,4,Strepera graculina,Pied Currawong,50741,3.07,Native
+Canberra,Birds,5,Eolophus roseicapilla,Galah,47823,2.89,Native
+Canberra,Birds,6,Platycercus elegans,Crimson Rosella,47606,2.88,Native
+Canberra,Birds,7,Anthochaera carunculata,Red Wattlebird,47259,2.86,Native
+Canberra,Birds,8,Corvus coronoides,Australian Raven,45352,2.74,Native
+Canberra,Birds,9,Malurus cyaneus,Superb Fairy-wren,43170,2.61,Native
+Canberra,Birds,10,Ocyphaps lophotes,Crested Pigeon,36732,2.22,Native
+Canberra,Mammals,1,Macropus giganteus,Eastern Grey Kangaroo,1979,14.93,Native
+Canberra,Mammals,2,Rattus rattus,Black Rat,1426,10.76,Introduced
+Canberra,Mammals,3,Notamacropus rufogriseus,Red-necked Wallaby,1031,7.78,Native
+Canberra,Mammals,4,Trichosurus vulpecula,Common Brushtail Possum,1024,7.73,Native
+Canberra,Mammals,5,Wallabia bicolor,Swamp Wallaby,933,7.04,Native
+Canberra,Mammals,6,Canis familiaris,Dingo,867,6.54,Native
+Canberra,Mammals,7,Tachyglossus aculeatus,Short-beaked Echidna,752,5.67,Native
+Canberra,Mammals,8,Vulpes vulpes,Fox,628,4.74,Introduced
+Canberra,Mammals,9,Oryctolagus cuniculus,Rabbit,598,4.51,Introduced
+Canberra,Mammals,10,Hydromys chrysogaster,Water-rat,570,4.3,Native
+Canberra,Reptiles,1,Chelodina longicollis,Snake-necked Turtle,1886,23.26,Native
+Canberra,Reptiles,2,Intellagama lesueurii,Gippsland Water Dragon,725,8.94,Native
+Canberra,Reptiles,3,Pseudonaja textilis,Common Brown Snake,345,4.26,Native
+Canberra,Reptiles,4,Tiliqua scincoides,Common Blue-tongue,337,4.16,Native
+Canberra,Reptiles,5,Egernia cunninghami,Cunningham's Skink,323,3.98,Native
+Canberra,Reptiles,6,Lampropholis delicata,Dark-flecked Garden Sunskink,314,3.87,Native
+Canberra,Reptiles,7,Tiliqua rugosa,Bobtail,308,3.8,Native
+Canberra,Reptiles,8,Acritoscincus duperreyi,Eastern Three-lined Skink,294,3.63,Native
+Canberra,Reptiles,9,Christinus marmoratus,Marbled Gecko,254,3.13,Native
+Canberra,Reptiles,10,Pogona barbata,Common Bearded Dragon,253,3.12,Native
+Canberra,Insects,1,Heteronympha merope,Common Brown,1379,1.39,Native
+Canberra,Insects,2,Junonia villida,Meadow Argus,885,0.89,Native
+Canberra,Insects,3,Vanessa kershawi,Australian Painted Lady,781,0.79,Native
+Canberra,Insects,4,Apis mellifera,European Honey Bee,751,0.76,Introduced
+Canberra,Insects,5,Zizina otis,Common Grass-blue,687,0.69,Native
+Canberra,Insects,6,Paropsisterna cloelia,Paropsisterna cloelia,551,0.55,Native
+Canberra,Insects,7,Pieris rapae,Cabbage White Butterfly,482,0.49,Introduced
+Canberra,Insects,8,Harmonia conformis,Common Spotted Ladybird,481,0.48,Native
+Canberra,Insects,9,Scopula rubraria,Carpet Moth,479,0.48,Native
+Canberra,Insects,10,Austrolestes leda,Wandering Ringtail,436,0.44,Native

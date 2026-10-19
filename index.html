@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Urban Wildlife in Australia's Major Cities</title>
+  <meta name="description" content="A data story about the birds, mammals, reptiles and insects living in Australia's eight capital cities, built with Vega-Lite from Atlas of Living Australia and ABS data.">
+  <meta name="author" content="[YOUR NAME]">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.33.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.23.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.29.0"></script>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>Urban Wildlife</h1>
+    <p class="dek">From possums and lorikeets to blue-tongue lizards and butterflies, wildlife is part of everyday urban life.
+      Between 2020 and 2024, people logged 16.6 million wildlife sightings across eight cities.
+      This story looks at what those sightings tell us: who lives alongside us, how each city is different, and what happens to wildlife as our cities get busier.</p>
+    <p class="byline">By Le Duy Anh Vo - FIT3179 Data Visualisation 2</p>
+    <div class="stats">
+      <div class="stat"><div class="num">16.6M</div><div class="lbl">wildlife records from the eight cities, 2020-2024</div></div>
+      <div class="stat"><div class="num">10,594</div><div class="lbl">species of bird, mammal, reptile and insect recorded in Australia's major cities</div></div>
+      <div class="stat"><div class="num">129</div><div class="lbl">nationally threatened species recorded in major cities</div></div>
+      <div class="stat"><div class="num">91%</div><div class="lbl">of city sightings are birds, yet birds are only 5% of the species</div></div>
+    </div>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+  
+  <!-- =============================== SECTION 1 =============================== -->
+  <section id="cities">
+    <div class="section-head">
+      <p class="section-num">Part 1</p>
+      <h2>Eight cities, thousands of wild neighbours</h2>
+      <p>Our capital cities are full of wildlife. Between 2020 and 2024, people spotted more than
+        a thousand different species in every capital, and more than five thousand in Brisbane.</p>
+    </div>
+
+    <figure>
+      <div class="two-col">
+        <div>
+          <div class="fig-head">
+            <h3>Brisbane, Sydney and Melbourne each have more than 4,500 species</h3>
+            <p>The bigger the circle, the more species people have seen in that city.</p>
+          </div>
+          <div id="ch-symbol" class="chart"></div>
+        </div>
+        <div>
+          <div class="callout">
+            <p class="bignum">5,532</p>
+            <p><strong>species</strong> were seen in Brisbane, more than in any other capital. Warm weather and large patches of bush inside
+              inside the city likely help. Insects alone make up 4,908 of them.</p>
+            <hr class="soft">
+            <p><strong>Choose Reptiles</strong> and the picture changes. Sydney (135 species) and Brisbane (111) come out on top, while
+              Hobart has only 16, since few reptiles cope with its cold winters.</p>
+            <hr class="soft">
+            <p style="margin:0"><strong>Darwin</strong> has the fewest species overall (1,392), but it has the smallest population (159,000)
+              and birds and reptiles make up a bigger share of its wildlife than anywhere else.</p>
+          </div>
+        </div>
+      </div>
+    </figure>
+
+    <figure>
+      <div class="fig-head">
+        <h3>In every city, most recorded species are insects</h3>
+        <p>Each column is one city. <strong>width</strong> The wider the column, the more species people have seen there.
+          The coloured blocks show how those species are split between the four animal groups. Insects fill most of every
+          column, from 68% in Darwin up to 90% in Hobart.</p>
+      </div>
+      <div id="ch-marimekko" class="chart"></div>
+    </figure>
+  </section>
+
+  <!-- =============================== SECTION 2 =============================== -->
+  <section id="attention">
+    <div class="section-head">
+      <p class="section-num">Part 2</p>
+      <h2>Birds get noticed, insects make up the diversity</h2>
+      <p>Birds are big, loud and out during the day, so birdwatchers log millions of sightings.
+        Insects are small and hard to identify, yet that is where most of the variety is.</p>
+    </div>
+
+    <figure>
+      <div class="two-col">
+        <div>
+          <div class="fig-head">
+            <h3>Birds are 91% of sightings, but insects are 91% of species</h3>
+            <p>Each square is 1%. The left grid shows sightings and the right grid shows species, across Australia’s major cities from 2020 to 2024.</p>
+          </div>
+          <div id="ch-waffle" class="chart"></div>
+        </div>
+        <div>
+          <div class="callout">
+            <p class="bignum"><span class="g-birds">572</span> vs <span class="g-insects">9,597</span></p>
+            <p><strong>Bird species and insect species</strong> recorded in Australia's major cities. Every bird species was recorded about
+              23,700 times on average. Every insect species fewer than 100 times.</p>
+          </div>
+        </div>
+      </div>
+    </figure>
+
+    <figure>
+      <div class="two-col">
+        <div>
+          <div class="fig-head">
+            <h3>Insect sightings are now more than 11 times higher than in 2015</h3>
+            <p>Sightings per year in the eight capitals. The axis uses a log scale, so a steeper line means faster growth.</p>
+          </div>
+          <div id="ch-years" class="chart"></div>
+        </div>
+        <div class="prose" style="padding-top:38px">
+          <p>Between 2015 and 2024, yearly sightings in the capitals grew
+            <span class="g-insects">11.5 times for insects</span>, <span class="g-birds">4.5 times for birds</span> and
+            <span class="g-reptiles">3.2 times for reptiles</span>.</p>
+          <p>The growth comes from people, not from more animals. Phone apps now make it easy for anyone to photograph an
+            animal and have it identified. That’s why the rest of this story mostly compares the number of species rather than the number of sightings.</p>
+        </div>
+      </div>
+    </figure>
+
+    <figure>
+      <div class="two-col even">
+        <div>
+          <div class="fig-head">
+            <h3>Who is doing the spotting?</h3>
+            <p>Sightings from the capitals between 2020 and 2024, grouped by the app or database they came from. Only the top eight sources for each animal group are shown.</p>
+          </div>
+          <div id="ch-treemap" class="chart"></div>
+        </div>
+        <div class="prose" style="padding-top:38px">
+          <p><strong>eBird Australia</strong>, a birdwatching app, supplied 12.8 million of the 16.6 million capital-city records (77%).</p>
+          <p>Most insect sightings (87%) come from<strong> iNaturalist Australia</strong>, where anyone can upload a photo of any living thing. It also supplied nearly half of all reptile sightings.</p>
+          <p>Mammals rely more on government records. About half come from <strong>NSW BioNet</strong> , much of it from professional surveys. Another source is
+            <strong>FeralScan</strong>, where people report pest animals such as foxes and rabbits.</p>
+        </div>
+      </div>
+    </figure>
+  </section>
+
+  <!-- =============================== SECTION 3 =============================== -->
+  <section id="gradient">
+    <div class="section-head">
+      <p class="section-num">Part 3</p>
+      <h2>How wildlife changes as citites grow</h2>
+      <p>expect cities to record the most species, since that’s where most people are looking. That’s not quite what happens.
+        When we compare cities with the outback, and busy suburbs with leafy ones, the city seems to push some animals out.</p>
+    </div>
+
+    <figure>
+      <div class="two-col">
+        <div>
+          <div class="fig-head">
+            <h3>Remote Australia records nearly three times as many reptile species as our cities</h3>
+            <p>Species seen between 2020 and 2024 in Australia’s major cities compared with its most remote areas. The axis uses a log scale.</p>
+          </div>
+          <div id="ch-slope" class="chart"></div>
+        </div>
+        <div class="prose" style="padding-top:38px">
+          <p>Very remote Australia has far fewer people looking. It logged 2.4 million sightings, compared with 14.9 million in the major cities.
+            Even so, it recorded more kinds of <span class="g-reptiles">reptile</span> (738 vs 257),
+            <span class="g-mammals">mammals</span> (247 vs 168) and <span class="g-birds">birds</span> (726 vs 572).</p>
+          <p>It also recorded more threatened species, 167 compared with 129 in the cities.</p>
+        </div>
+      </div>
+    </figure>
+
+    <figure>
+      <div class="fig-head">
+        <h3>The more crowded a council area, the fewer species people find there</h3>
+        <p>The map on the left shows how many species were seen in each council area of the chosen city. 
+          The chart on the right shows every council area in all eight capitals, comparing how crowded it is with how many species were seen.</p>
+      </div>
+      <div id="ch-choro" class="chart"></div>
+    </figure>
+    <div class="two-col even" style="margin-top:-12px">
+      <div class="callout">
+        On average, council areas with about <strong>30 people per km²</strong> have around <strong>250 bird species</strong> Areas with about
+        <strong>3,000 people per km²</strong> have around <strong>160</strong>
+      </div>
+      <div class="prose" style="font-size:16.5px;color:var(--ink-2)">
+        In Melbourne, outer areas with wetlands, coast or forest have the most bird species. Wyndham has 261, Mornington Peninsula 252 and Yarra Ranges 245.
+        Busy inner suburbs such as Stonnington (114) and Glen Eira (127) have the fewest. Crowded areas also tend to be smaller, which explains part of the gap.
+      </div>
+    </div>
+
+    <figure>
+      <div class="two-col">
+        <div>
+          <div class="fig-head">
+            <h3>Melbourne's wildlife hotspots are wetlands, gardens and creeks</h3>
+            <p>All 4.5 million wildlife sightings in Greater Melbourne between 2020 and 2024, counted in squares of 2 km by 2 km. The darker the square, the more sightings.</p>
+          </div>
+          <div id="ch-grid" class="chart"></div>
+        </div>
+        <div class="prose" style="padding-top:38px">
+          <p>The busiest square of all is the <strong>Western Treatment Plant</strong> at Werribee, with about 160,000 sightings. It’s a sewage treatment wetland, and one of the best places in Australia to watch birds.</p>
+          <p>Lines of dark squares follow parks, golf courses and creeks through the suburbs. Right in the city centre, the
+            <strong>Royal Botanic Gardens</strong> logged about 97,000 sightings.</p>
+          <p>Parks, wetlands and creeks are where wildlife survives in the city, and they’re also where people go to look for it.</p>
+        </div>
+      </div>
+    </figure>
+  </section>
+
+  <!-- =============================== SECTION 4 =============================== -->
+  <section id="character">
+    <div class="section-head">
+      <p class="section-num">Part 4</p>
+      <h2>Every city has its own wild character</h2>
+      <p>Adaptable species turn up almost everywhere. But each capital also has its own locals that don’t make the list anywhere else.</p>
+    </div>
+
+    <figure>
+      <div class="fig-head">
+        <h3>The Australian Magpie is a top 10 bird in six capitals, but Hobart and Darwin go their own way</h3>
+        <p>These are the birds that make the top 10 in at least two capitals. The number in each dot is the
+          bird’s rank in that city. Bigger dots mean a bigger share of that city’s bird sightings. The number in brackets shows how many cities the bird appears in.</p>
+      </div>
+      <div id="ch-matrix" class="chart"></div>
+    </figure>
+
+    <figure>
+      <div class="fig-head">
+        <h3>Melbourne’s most recorded mammal is an introduced deer, while Brisbane’s is the koala</h3>
+        <p>The five most recorded mammals in each capital between 2020 and 2024. Grey bars are animals brought to Australia from overseas.</p>
+      </div>
+      <div id="ch-mammals" class="chart"></div>
+    </figure>
+    <div class="prose">
+      <p>Possums top Sydney’s list, koalas lead in Brisbane and flying foxes come first in Adelaide. In Darwin it’s the agile wallaby, and every animal in Hobart’s top five is native.
+        But introduced animals are never far away. The <strong>red fox</strong> and the <strong>European rabbit</strong> each make the top 10 mammals in six capitals.</p>
+    </div>
+
+    <figure>
+      <div class="two-col">
+        <div>
+          <div class="fig-head">
+            <h3>Sydney recorded 83 threatened species in five years</h3>
+            <p>Species at risk of extinction under national law, seen in each capital between 2020 and 2024.</p>
+          </div>
+          <div id="ch-threat" class="chart"></div>
+        </div>
+        <div class="prose" style="padding-top:38px">
+          <p>Cities are home to some of the animals most at risk of dying out in Australia. Every capital recorded at least 29 threatened species, and most of them are
+          <span class="g-birds">birds</span>.</p>
+          <p>Sydney leads with 83, including 19 threatened <span class="g-mammals">mammals</span> and 14 threatened
+            <span class="g-reptiles">reptiles.</span></p>
+        </div>
+      </div>
+    </figure>
+  </section>
+
+  <!-- =============================== SECTION 5 =============================== -->
+  <section id="seasons">
+    <div class="section-head">
+      <p class="section-num">Part 5</p>
+      <h2>When the city comes alive</h2>
+      <p>Wildlife sightings follow the seasons. Reptiles and insects need warmth, so they mostly disappear in winter. Birds are seen all year round.</p>
+    </div>
+
+    <figure>
+      <div class="fig-head">
+        <h3>In southern cities, reptiles and insects vanish in winter, while birds barely change</h3>
+        <p>Each wedge is one month, starting with January at the top and going clockwise. The dashed ring shows an average month. 
+          Wedges that reach past it are busier than usual, and faded wedges are quieter. Pick a city to compare.</p>
+      </div>
+      <div class="view-toggle" role="group" aria-label="Chart view">
+      <button type="button" id="btn-circle" class="active" aria-pressed="true">Circle view</button>
+      <button type="button" id="btn-line" aria-pressed="false">Line view</button>
+      </div>
+      <div id="ch-radial" class="chart"></div>
+      <div id="ch-lines" class="chart" style="display:none"></div>
+    </figure>
+    <div class="two-col even">
+      <div class="callout">In Melbourne, <strong>October and November</strong> each bring about twice as many reptile sightings as an average month, 
+        while June and July bring only about a fifth. Insect sightings in December are more than ten times those in July.</div>
+      <div class="prose" style="font-size:16.5px;color:var(--ink-2)">Birds peak in <strong>October</strong> in every capital except Perth, where January is busiest. That’s spring breeding season,
+        and also when BirdLife Australia runs its Aussie Backyard Bird Count. Try <strong>Darwin</strong> too. Its birds peak in the dry season from July to October, and its reptiles don’t slow down in winter at all.</div>
+    </div>
+
+    <figure>
+      <div class="fig-head">
+        <h3>From Hobart to Darwin, the reptile season shrinks and then disappears</h3>
+        <p>Sightings in each month compared with that city’s average month. Orange means busier than usual and blue means quieter. 
+        Cities run from north at the top to south at the bottom. Pick an animal group to compare.</p>
+      </div>
+      <div id="ch-heat" class="chart"></div>
+    </figure>
+    <div class="prose">
+      <p>Hobart’s reptiles almost vanish from May to August, then reach more than twice the average in December and January. 
+        Perth has a short, sharp season, with October bringing 3.4 times the sightings of an average month. 
+        Tropical Darwin has no winter break at all. Instead, its reptile sightings jump in July.</p>
+    </div>
+  </section>
+
+</div>
+</main>
+  
+<footer>
+  <div class="wrap">
+    <h3>Data sources</h3>
+    <ol>
+      <li><strong>Atlas of Living Australia (ALA)</strong>, occurrence records via the biocache web service
+        (<a href="https://biocache-ws.ala.org.au/ws/">biocache-ws.ala.org.au</a>), accessed 12 October 2026. Filters: classes Aves, Mammalia, Reptilia, Insecta;
+        years 2020–2024 (2010–2024 for the trend chart); occurrence status “present”; spatially valid records. Counts are facet totals by ABS Greater Capital City Statistical Area 2021,
+        Local Government Area 2023 and Remoteness Area 2016 layers held by the ALA. Records are contributed by many datasets (e.g. eBird Australia, iNaturalist Australia,
+        BirdLife Australia Birdata, NSW BioNet) under their own licences.</li>
+      <li><strong>Australian Bureau of Statistics</strong>, Estimated Resident Population, 30 June 2025, by Greater Capital City Statistical Area and by Local Government Area (2025),
+        via the ABS Data API (<a href="https://data.api.abs.gov.au/">data.api.abs.gov.au</a>, dataflows ERP_LGA2025 and ABS_ANNUAL_ERP_ASGS2021). CC BY 4.0.</li>
+      <li><strong>ABS boundaries</strong> — states and territories, and Local Government Areas (2022) — from the ABS ASGS Edition 3 digital boundary files, as distributed by
+        <a href="https://www.geoboundaries.org/">geoBoundaries</a> (gbOpen AUS ADM1/ADM2). CC BY 4.0. Simplified with mapshaper. “Moreland” renamed “Merri-bek” (2022 name change).</li>
+    </ol>
+    <h3>AI Acknowledgement</h3>
+    <p>AI assisted in data finding, data preparation and helped reword my explanation.</p>
+  </div>
+</footer>
+
+<script>
+  const charts = [
+    ["#ch-symbol", "specs/01_symbol_map.vl.json"],
+    ["#ch-marimekko", "specs/02_marimekko.vl.json"],
+    ["#ch-waffle", "specs/03_waffle.vl.json"],
+    ["#ch-years", "specs/04_records_by_year.vl.json"],
+    ["#ch-treemap", "specs/05_treemap.vg.json"],
+    ["#ch-slope", "specs/06_slope.vl.json"],
+    ["#ch-choro", "specs/07_choropleth_scatter.vl.json"],
+    ["#ch-grid", "specs/08_melbourne_grid.vl.json"],
+    ["#ch-matrix", "specs/09_bird_matrix.vl.json"],
+    ["#ch-mammals", "specs/10_mammals_small_multiples.vl.json"],
+    ["#ch-threat", "specs/11_threatened.vl.json"],
+    ["#ch-radial", "specs/12_radial_seasons.vl.json"],
+    ["#ch-lines", "specs/12b_season_lines.vl.json"],
+    ["#ch-heat", "specs/13_season_heatmap.vl.json"],
+  ];
+  const opts = { renderer: "svg", actions: { export: true, source: true, compiled: false, editor: true } };
+  // wait for the web fonts so Vega measures label widths with the same font it draws with
+  // ---- circle / line view for the seasonal chart ----
+  const seasonViews = {};
+  function linkSeasonCharts() {
+    const radial = seasonViews.radial, lines = seasonViews.lines;
+    if (!radial || !lines) return;
+    // the line chart always shows the same city as the circle chart
+    lines.signal("city", radial.signal("city")).runAsync();
+    radial.addSignalListener("city", (name, value) => lines.signal("city", value).runAsync());
+  }
+  const btnCircle = document.getElementById("btn-circle"), btnLine = document.getElementById("btn-line");
+  function showSeasonView(line) {
+    // hide the circles but keep the City menu, so it still works in the line view
+    document.querySelectorAll("#ch-radial .chart-wrapper > svg, #ch-radial > details").forEach(n => n.style.display = line ? "none" : "");
+    document.getElementById("ch-lines").style.display = line ? "" : "none";
+    btnCircle.classList.toggle("active", !line); btnLine.classList.toggle("active", line);
+    btnCircle.setAttribute("aria-pressed", String(!line)); btnLine.setAttribute("aria-pressed", String(line));
+  }
+  btnCircle.addEventListener("click", () => showSeasonView(false));
+  btnLine.addEventListener("click", () => showSeasonView(true));
+  const fontsReady = document.fonts ? Promise.race([document.fonts.ready, new Promise(r => setTimeout(r, 2500))]) : Promise.resolve();
+  fontsReady.then(() => { for (const [el, spec] of charts) {
+      vegaEmbed(el, spec, opts).then(res => {
+        if (el === "#ch-radial") seasonViews.radial = res.view;
+        if (el === "#ch-lines") seasonViews.lines = res.view;
+        linkSeasonCharts();
+    }).catch(err => {
+      document.querySelector(el).innerHTML = '<p style="color:#b00">Chart failed to load: ' + err.message + '</p>';
+      console.error(spec, err);
+    });
+  } });
+</script>
+</body>
+</html>

@@ -1,0 +1,336 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Marimekko chart: column width = species recorded in each city; segments = share by animal group.",
+  "width": 1000,
+  "height": 300,
+  "data": {
+    "url": "data/city_group_summary.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "lat": "number",
+        "lon": "number",
+        "records": "number",
+        "species": "number",
+        "threatened_species": "number",
+        "population_2025": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "calculate": "indexof([\"Birds\", \"Mammals\", \"Reptiles\", \"Insects\"], datum.group)",
+      "as": "gorder"
+    },
+    {
+      "joinaggregate": [
+        {
+          "op": "sum",
+          "field": "species",
+          "as": "city_total"
+        }
+      ],
+      "groupby": [
+        "city"
+      ]
+    },
+    {
+      "window": [
+        {
+          "op": "sum",
+          "field": "species",
+          "as": "run"
+        }
+      ],
+      "sort": [
+        {
+          "field": "city_total",
+          "order": "descending"
+        },
+        {
+          "field": "city"
+        },
+        {
+          "field": "gorder"
+        }
+      ],
+      "frame": [
+        null,
+        0
+      ]
+    },
+    {
+      "joinaggregate": [
+        {
+          "op": "max",
+          "field": "run",
+          "as": "cx2"
+        }
+      ],
+      "groupby": [
+        "city"
+      ]
+    },
+    {
+      "calculate": "datum.cx2 - datum.city_total",
+      "as": "cx"
+    },
+    {
+      "window": [
+        {
+          "op": "sum",
+          "field": "species",
+          "as": "yrun"
+        }
+      ],
+      "groupby": [
+        "city"
+      ],
+      "sort": [
+        {
+          "field": "gorder"
+        }
+      ],
+      "frame": [
+        null,
+        0
+      ]
+    },
+    {
+      "calculate": "datum.yrun / datum.city_total",
+      "as": "y2"
+    },
+    {
+      "calculate": "(datum.yrun - datum.species) / datum.city_total",
+      "as": "y1"
+    },
+    {
+      "calculate": "datum.species / datum.city_total",
+      "as": "share"
+    },
+    {
+      "calculate": "(datum.y1 + datum.y2) / 2",
+      "as": "ymid"
+    },
+    {
+      "calculate": "(datum.cx + datum.cx2) / 2",
+      "as": "xmid"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "cx",
+      "type": "quantitative",
+      "axis": null,
+      "scale": {
+        "zero": true,
+        "nice": false
+      }
+    },
+    "y": {
+      "field": "y1",
+      "type": "quantitative",
+      "scale": {
+        "domain": [
+          0,
+          1
+        ]
+      },
+      "axis": {
+        "format": "%",
+        "title": "Share of the city's recorded species",
+        "tickCount": 5,
+        "grid": false
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rect",
+        "stroke": "#f5f6f1",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "x2": {
+          "field": "cx2"
+        },
+        "y2": {
+          "field": "y2"
+        },
+        "color": {
+          "field": "group",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Birds",
+              "Mammals",
+              "Reptiles",
+              "Insects"
+            ],
+            "range": [
+              "#2a78d6",
+              "#e34948",
+              "#1baf7a",
+              "#eda100"
+            ]
+          },
+          "legend": {
+            "title": null,
+            "orient": "bottom",
+            "direction": "horizontal",
+            "offset": 28
+          }
+        },
+        "tooltip": [
+          {
+            "field": "city",
+            "title": "City"
+          },
+          {
+            "field": "group",
+            "title": "Group"
+          },
+          {
+            "field": "species",
+            "title": "Species recorded",
+            "format": ","
+          },
+          {
+            "field": "share",
+            "title": "Share of city's species",
+            "format": ".1%"
+          },
+          {
+            "field": "city_total",
+            "title": "All species in the city",
+            "format": ","
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.share >= 0.05"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 12,
+        "fontWeight": 600,
+        "color": "#ffffff"
+      },
+      "encoding": {
+        "x": {
+          "field": "xmid",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "ymid",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "share",
+          "format": ".0%"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.gorder == 0"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 13,
+        "fontWeight": 700,
+        "color": "#22211d",
+        "baseline": "bottom",
+        "dy": -6
+      },
+      "encoding": {
+        "x": {
+          "field": "xmid",
+          "type": "quantitative"
+        },
+        "y": {
+          "datum": 1
+        },
+        "text": {
+          "field": "city"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.gorder == 0"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 11,
+        "color": "#8a877e",
+        "baseline": "top",
+        "dy": 6
+      },
+      "encoding": {
+        "x": {
+          "field": "xmid",
+          "type": "quantitative"
+        },
+        "y": {
+          "datum": 0
+        },
+        "text": {
+          "field": "city_total",
+          "format": ","
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "Source Sans 3",
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelColor": "#55534d",
+      "titleColor": "#55534d",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "gridColor": "#e1e4da",
+      "domainColor": "#c9c5ba",
+      "tickColor": "#c9c5ba",
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3"
+    },
+    "legend": {
+      "labelColor": "#55534d",
+      "titleColor": "#55534d",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3"
+    },
+    "header": {
+      "labelColor": "#22211d",
+      "labelFontSize": 14,
+      "labelFontWeight": 600,
+      "labelFont": "Source Sans 3",
+      "titleFontSize": 0
+    },
+    "text": {
+      "font": "Source Sans 3",
+      "color": "#55534d"
+    },
+    "tooltip": {
+      "content": "data"
+    }
+  }
+}

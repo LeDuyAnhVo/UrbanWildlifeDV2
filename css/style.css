@@ -1,0 +1,175 @@
+/* Wild Neighbours — FIT3179 Data Visualisation 2
+   Layout: single scrolling column (max 1100px) — hero → five numbered parts → call to action → sources.
+   Type: Bricolage Grotesque (display: hand-cut, field-notebook feel) + Source Sans 3 (body and all chart text).
+   Colour: sage-tinted paper and deep bush green; the four animal-group hues are reserved for data. */
+
+:root {
+  --surface: #f5f6f1;
+  --surface-2: #eaede4;
+  --ink: #22211d;
+  --ink-2: #55534d;
+  --muted: #8a877e;
+  --rule: #dcdfd4;
+  --accent: #1f6f5c;        /* deep eucalypt green, used for links and small accents only */
+  --birds: #2a78d6;
+  --mammals: #e34948;
+  --reptiles: #1baf7a;
+  --insects: #eda100;
+  --maxw: 1100px;
+  --text-w: 680px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--surface);
+  color: var(--ink);
+  font-family: "Source Sans 3", "Source Sans Pro", system-ui, sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); text-underline-offset: 2px; }
+a:focus-visible, select:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.stat .num, .bignum { font-variant-numeric: tabular-nums; }
+
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 16px; }
+
+/* ---------- hero ---------- */
+.hero {
+  background: #1b2a24;
+  color: #f4f1e8;
+  padding: 72px 0 56px;
+  margin-bottom: 8px;
+}
+.hero .kicker {
+  font-size: 14px; letter-spacing: .14em; text-transform: uppercase; color: #b9d3c6; margin: 0 0 14px;
+}
+.hero h1 {
+  font-family: "Bricolage Grotesque", "Trebuchet MS", sans-serif;
+  font-weight: 700;
+  font-size: clamp(44px, 7vw, 80px);
+  line-height: 1.04;
+  letter-spacing: -0.01em;
+  margin: 0 0 18px;
+  max-width: 14ch;
+}
+.hero .dek {
+  font-size: 21px; line-height: 1.5; color: #dcd8cc; max-width: 40em; margin: 0 0 28px;
+}
+.byline { font-size: 15px; color: #b5b1a5; margin: 0; }
+
+.stats {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 40px;
+}
+.stat {
+  border-top: 2px solid #4e6b5f; padding-top: 12px;
+}
+.stat .num {
+  font-family: "Bricolage Grotesque", "Trebuchet MS", sans-serif; font-size: 38px; font-weight: 600; line-height: 1.1; color: #ffffff;
+}
+.stat .lbl { font-size: 15px; color: #cfcabd; line-height: 1.35; margin-top: 4px; }
+
+/* ---------- body text ---------- */
+section { padding: 72px 0 24px; scroll-margin-top: 64px; }
+section + section { border-top: 1px solid var(--rule); }
+.section-head { max-width: var(--text-w); }
+.section-num {
+  font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin: 0 0 6px;
+}
+h1, h2, h3 { text-wrap: balance; }
+h2 {
+  font-family: "Bricolage Grotesque", "Trebuchet MS", sans-serif; font-weight: 700; font-size: 36px; line-height: 1.15; margin: 0 0 14px;
+  letter-spacing: -0.005em;
+}
+h3 {
+  font-family: "Bricolage Grotesque", "Trebuchet MS", sans-serif; font-weight: 600; font-size: 23px; line-height: 1.25; margin: 0 0 6px;
+}
+p { margin: 0 0 16px; }
+.lede { font-size: 20px; color: var(--ink-2); }
+.prose { max-width: var(--text-w); }
+
+.g-birds { color: var(--birds); font-weight: 700; }
+.g-mammals { color: var(--mammals); font-weight: 700; }
+.g-reptiles { color: #128a5f; font-weight: 700; }   /* darker step of the reptile hue for text contrast */
+.g-insects { color: #a87100; font-weight: 700; }    /* darker step of the insect hue for text contrast */
+
+/* ---------- figures ---------- */
+figure { margin: 44px 0 56px; }
+.fig-head { max-width: var(--text-w); margin-bottom: 20px; }
+.fig-head p { font-size: 16.5px; color: var(--ink-2); margin: 0; }
+.chart { width: 100%; overflow: visible; }
+.chart.center { display: flex; justify-content: center; }
+figcaption, .fig-foot {
+  font-size: 13.5px; color: var(--muted); margin-top: 8px; max-width: 760px; line-height: 1.45;
+}
+.fig-foot a { color: var(--muted); }
+.hint {
+  display: inline-block; font-size: 13px; font-weight: 600; color: var(--accent);
+  background: #dfe9e2; border-radius: 999px; padding: 2px 10px; margin-top: 8px;
+}
+
+.two-col {
+  display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 56px; align-items: start;
+}
+.two-col.even { grid-template-columns: 1fr 1fr; }
+.callout {
+  background: var(--surface-2); border-left: 3px solid var(--accent); padding: 16px 20px; border-radius: 0 6px 6px 0;
+  font-size: 16.5px; color: var(--ink-2);
+}
+.callout strong { color: var(--ink); }
+.bignum {
+  font-family: "Bricolage Grotesque", "Trebuchet MS", sans-serif; font-size: 54px; font-weight: 600; line-height: 1; margin: 0 0 4px;
+}
+
+.glossary { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 32px; font-size: 15.5px; color: var(--ink-2); }
+.glossary b { color: var(--ink); }
+
+hr.soft { border: 0; border-top: 1px solid var(--rule); margin: 24px 0; }
+
+/* Vega-embed controls (dropdowns / radios bound to chart parameters) */
+.vega-bindings { font-size: 14px; color: var(--ink-2); margin: 0 0 10px; display: flex; gap: 22px; flex-wrap: wrap; }
+.vega-bind-name { font-weight: 700; color: var(--ink); }
+.vega-bindings select {
+  font: inherit; font-size: 14px; padding: 4px 8px; border: 1px solid #cfcabd; border-radius: 6px; background: #fff; color: var(--ink);
+}
+.vega-bindings input[type="radio"] { accent-color: var(--accent); }
+.vega-embed { width: 100%; }
+.vega-embed summary { opacity: .55; }
+#vg-tooltip-element { font-family: "Source Sans 3", sans-serif; font-size: 13px; }
+
+/* ---------- closing ---------- */
+.closing { background: #1b2a24; color: #f4f1e8; padding: 48px 0; margin-top: 32px; }
+.closing h2 { color: #fff; }
+.closing p { color: #dcd8cc; max-width: var(--text-w); }
+.closing a { color: #9fd9bf; }
+
+footer { padding: 36px 0 60px; font-size: 14.5px; color: var(--ink-2); }
+footer h3 { font-size: 19px; margin-top: 18px; }
+footer ol { padding-left: 20px; }
+footer li { margin-bottom: 8px; }
+footer code { font-size: 13px; background: var(--surface-2); padding: 1px 4px; border-radius: 3px; }
+
+/* Below laptop width, wide charts scroll inside their own box instead of widening the page */
+@media (max-width: 1100px) {
+  .chart { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+}
+
+@media (max-width: 900px) {
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .two-col, .two-col.even { grid-template-columns: minmax(0, 1fr); }
+  .glossary { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* ---------- circle / line view toggle for the seasonal chart ---------- */
+.view-toggle { display: flex; gap: 8px; margin-bottom: 16px; }
+.view-toggle button {
+  font: inherit; font-size: 14px; font-weight: 600; padding: 6px 14px; border-radius: 999px; cursor: pointer;
+  border: 1px solid var(--accent); background: transparent; color: var(--accent);
+}
+.view-toggle button.active { background: var(--accent); color: #fff; }
+.view-toggle button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }

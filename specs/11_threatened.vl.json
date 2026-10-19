@@ -1,0 +1,191 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Stacked horizontal bar: nationally threatened (EPBC-listed) species recorded in each capital, 2020-2024, by group.",
+  "width": 460,
+  "height": {
+    "step": 30
+  },
+  "data": {
+    "url": "data/city_group_summary.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "lat": "number",
+        "lon": "number",
+        "records": "number",
+        "species": "number",
+        "threatened_species": "number",
+        "population_2025": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "calculate": "indexof([\"Birds\", \"Mammals\", \"Reptiles\", \"Insects\"], datum.group)",
+      "as": "gorder"
+    },
+    {
+      "joinaggregate": [
+        {
+          "op": "sum",
+          "field": "threatened_species",
+          "as": "total"
+        }
+      ],
+      "groupby": [
+        "city"
+      ]
+    }
+  ],
+  "encoding": {
+    "y": {
+      "field": "city",
+      "type": "nominal",
+      "sort": {
+        "field": "total",
+        "op": "max",
+        "order": "descending"
+      },
+      "axis": {
+        "title": null,
+        "domain": false,
+        "ticks": false,
+        "labelFontSize": 12.5,
+        "labelFontWeight": 600,
+        "labelColor": "#22211d"
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "stroke": "#f5f6f1",
+        "strokeWidth": 2,
+        "height": {
+          "band": 0.7
+        }
+      },
+      "encoding": {
+        "x": {
+          "field": "threatened_species",
+          "type": "quantitative",
+          "stack": "zero",
+          "axis": {
+            "title": "Threatened species recorded",
+            "grid": true,
+            "tickCount": 5
+          }
+        },
+        "color": {
+          "field": "group",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Birds",
+              "Mammals",
+              "Reptiles",
+              "Insects"
+            ],
+            "range": [
+              "#2a78d6",
+              "#e34948",
+              "#1baf7a",
+              "#eda100"
+            ]
+          },
+          "legend": {
+            "title": null,
+            "orient": "top",
+            "direction": "horizontal"
+          }
+        },
+        "order": {
+          "field": "gorder"
+        },
+        "tooltip": [
+          {
+            "field": "city"
+          },
+          {
+            "field": "group"
+          },
+          {
+            "field": "threatened_species",
+            "title": "Threatened species"
+          },
+          {
+            "field": "total",
+            "title": "City total (all groups)"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.gorder == 0"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 6,
+        "fontWeight": 700,
+        "fontSize": 12.5,
+        "color": "#22211d"
+      },
+      "encoding": {
+        "x": {
+          "field": "total",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "total"
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "Source Sans 3",
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelColor": "#55534d",
+      "titleColor": "#55534d",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "gridColor": "#e1e4da",
+      "domainColor": "#c9c5ba",
+      "tickColor": "#c9c5ba",
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3"
+    },
+    "legend": {
+      "labelColor": "#55534d",
+      "titleColor": "#55534d",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3"
+    },
+    "header": {
+      "labelColor": "#22211d",
+      "labelFontSize": 14,
+      "labelFontWeight": 600,
+      "labelFont": "Source Sans 3",
+      "titleFontSize": 0
+    },
+    "text": {
+      "font": "Source Sans 3",
+      "color": "#55534d"
+    },
+    "tooltip": {
+      "content": "data"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+remoteness,order,group,records,species,threatened_species,species_index,records_per_species
+Major cities,1,Birds,13532807,572,66,100.0,23658.8
+Major cities,1,Mammals,299329,168,31,100.0,1781.7
+Major cities,1,Reptiles,102119,257,26,100.0,397.4
+Major cities,1,Insects,934573,9597,6,100.0,97.4
+Inner regional,2,Birds,12069943,635,80,111.0,19007.8
+Inner regional,2,Mammals,477953,192,43,114.3,2489.3
+Inner regional,2,Reptiles,94849,324,42,126.1,292.7
+Inner regional,2,Insects,810327,11421,9,119.0,71.0
+Outer regional,3,Birds,8451326,700,91,122.4,12073.3
+Outer regional,3,Mammals,743038,244,60,145.2,3045.2
+Outer regional,3,Reptiles,94329,504,50,196.1,187.2
+Outer regional,3,Insects,481703,12777,10,133.1,37.7
+Remote,4,Birds,1927867,681,87,119.1,2830.9
+Remote,4,Mammals,256477,233,50,138.7,1100.8
+Remote,4,Reptiles,38473,542,32,210.9,71.0
+Remote,4,Insects,93296,7092,3,73.9,13.2
+Very remote,5,Birds,2034345,726,93,126.9,2802.1
+Very remote,5,Mammals,217438,247,48,147.0,880.3
+Very remote,5,Reptiles,70066,738,24,287.2,94.9
+Very remote,5,Insects,98335,5460,2,56.9,18.0

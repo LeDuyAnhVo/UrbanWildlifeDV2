@@ -1,0 +1,310 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Slope graph: species recorded 2020-2024 in Australia's major cities vs very remote areas, by animal group (log scale).",
+  "width": 360,
+  "height": 360,
+  "data": {
+    "url": "data/remoteness_group_summary.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "order": "number",
+        "records": "number",
+        "species": "number",
+        "threatened_species": "number",
+        "species_index": "number",
+        "records_per_species": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "filter": "datum.order == 1 || datum.order == 5"
+    },
+    {
+      "joinaggregate": [
+        {
+          "op": "min",
+          "field": "species",
+          "as": "city_sp"
+        }
+      ],
+      "groupby": [
+        "group"
+      ]
+    },
+    {
+      "calculate": "datum.order == 1 ? 'Major cities' : 'Very remote'",
+      "as": "where"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "where",
+      "type": "ordinal",
+      "sort": [
+        "Major cities",
+        "Very remote"
+      ],
+      "scale": {
+        "padding": 0.35
+      },
+      "axis": {
+        "title": null,
+        "orient": "top",
+        "labelAngle": 0,
+        "labelFontSize": 13,
+        "labelFontWeight": 700,
+        "labelColor": "#22211d",
+        "domain": false,
+        "ticks": false,
+        "labelPadding": 8
+      }
+    },
+    "y": {
+      "field": "species",
+      "type": "quantitative",
+      "scale": {
+        "type": "log",
+        "domain": [
+          150,
+          15000
+        ]
+      },
+      "axis": null
+    },
+    "color": {
+      "field": "group",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Birds",
+          "Mammals",
+          "Reptiles",
+          "Insects"
+        ],
+        "range": [
+          "#2a78d6",
+          "#e34948",
+          "#1baf7a",
+          "#eda100"
+        ]
+      },
+      "legend": null
+    },
+    "opacity": {
+      "condition": [
+        {
+          "param": "hov",
+          "empty": true,
+          "value": 1
+        }
+      ],
+      "value": 0.2
+    },
+    "tooltip": [
+      {
+        "field": "group",
+        "title": "Group"
+      },
+      {
+        "field": "where",
+        "title": "Area"
+      },
+      {
+        "field": "species",
+        "title": "Species recorded",
+        "format": ","
+      },
+      {
+        "field": "records",
+        "title": "Records",
+        "format": ","
+      },
+      {
+        "field": "threatened_species",
+        "title": "Threatened species recorded"
+      }
+    ]
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "strokeWidth": 3
+      },
+      "encoding": {
+        "detail": {
+          "field": "group"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "size": 110,
+        "stroke": "#f5f6f1",
+        "strokeWidth": 2,
+        "opacity": 1
+      },
+      "params": [
+        {
+          "name": "hov",
+          "select": {
+            "type": "point",
+            "fields": [
+              "group"
+            ],
+            "on": "pointerover",
+            "clear": "pointerout"
+          }
+        }
+      ]
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.order == 1"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -12,
+        "fontSize": 12
+      },
+      "encoding": {
+        "text": {
+          "field": "species",
+          "format": ","
+        },
+        "color": {
+          "value": "#55534d"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.order == 5 && datum.group == 'Birds'"
+        },
+        {
+          "calculate": "datum.group + '  ' + format(datum.species, ',') + (datum.group == 'Insects' ? '  (fewer records)' : '  (×' + format(datum.species / datum.city_sp, '.1f') + ')')",
+          "as": "lab"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 12,
+        "dy": 9,
+        "fontSize": 12,
+        "fontWeight": 600
+      },
+      "encoding": {
+        "text": {
+          "field": "lab"
+        },
+        "color": {
+          "value": "#55534d"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.order == 5 && datum.group == 'Reptiles'"
+        },
+        {
+          "calculate": "datum.group + '  ' + format(datum.species, ',') + (datum.group == 'Insects' ? '  (fewer records)' : '  (×' + format(datum.species / datum.city_sp, '.1f') + ')')",
+          "as": "lab"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 12,
+        "dy": -8,
+        "fontSize": 12,
+        "fontWeight": 600
+      },
+      "encoding": {
+        "text": {
+          "field": "lab"
+        },
+        "color": {
+          "value": "#55534d"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.order == 5 && (datum.group == 'Mammals' || datum.group == 'Insects')"
+        },
+        {
+          "calculate": "datum.group + '  ' + format(datum.species, ',') + (datum.group == 'Insects' ? '  (fewer records)' : '  (×' + format(datum.species / datum.city_sp, '.1f') + ')')",
+          "as": "lab"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 12,
+        "dy": 0,
+        "fontSize": 12,
+        "fontWeight": 600
+      },
+      "encoding": {
+        "text": {
+          "field": "lab"
+        },
+        "color": {
+          "value": "#55534d"
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "Source Sans 3",
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelColor": "#55534d",
+      "titleColor": "#55534d",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "gridColor": "#e1e4da",
+      "domainColor": "#c9c5ba",
+      "tickColor": "#c9c5ba",
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3"
+    },
+    "legend": {
+      "labelColor": "#55534d",
+      "titleColor": "#55534d",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3"
+    },
+    "header": {
+      "labelColor": "#22211d",
+      "labelFontSize": 14,
+      "labelFontWeight": 600,
+      "labelFont": "Source Sans 3",
+      "titleFontSize": 0
+    },
+    "text": {
+      "font": "Source Sans 3",
+      "color": "#55534d"
+    },
+    "tooltip": {
+      "content": "data"
+    }
+  }
+}

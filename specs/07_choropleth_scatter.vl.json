@@ -1,0 +1,436 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Linked views: choropleth of species recorded per local government area for a chosen city, and a scatterplot of every capital-city LGA's population density (ABS) against species recorded (ALA).",
+  "params": [
+    {
+      "name": "city",
+      "value": "Melbourne",
+      "bind": {
+        "input": "select",
+        "options": [
+          "Sydney",
+          "Melbourne",
+          "Brisbane",
+          "Perth",
+          "Adelaide",
+          "Hobart",
+          "Darwin"
+        ],
+        "name": "City  "
+      }
+    },
+    {
+      "name": "grp",
+      "value": "Birds",
+      "bind": {
+        "input": "select",
+        "options": [
+          "Birds",
+          "Mammals",
+          "Reptiles",
+          "Insects"
+        ],
+        "name": "Animal group  "
+      }
+    },
+    {
+      "name": "hov",
+      "select": {
+        "type": "point",
+        "fields": [
+          "lga"
+        ],
+        "on": "pointerover",
+        "clear": "pointerout"
+      },
+      "views": [
+        "map",
+        "scatterpts"
+      ]
+    }
+  ],
+  "hconcat": [
+    {
+      "name": "map",
+      "width": 440,
+      "height": 420,
+      "data": {
+        "url": "data/capital_lgas.topo.json",
+        "format": {
+          "type": "topojson",
+          "feature": "lgas"
+        }
+      },
+      "transform": [
+        {
+          "calculate": "datum.properties.lga",
+          "as": "lga"
+        },
+        {
+          "calculate": "datum.properties.city",
+          "as": "city"
+        },
+        {
+          "filter": "datum.city == city"
+        },
+        {
+          "lookup": "lga",
+          "from": {
+            "data": {
+              "url": "data/lga_population_and_wildlife.csv",
+              "format": {
+                "type": "csv",
+                "parse": {
+                  "population_2025": "number",
+                  "area_km2": "number",
+                  "density_per_km2": "number",
+                  "records_birds": "number",
+                  "species_birds": "number",
+                  "records_mammals": "number",
+                  "species_mammals": "number",
+                  "records_reptiles": "number",
+                  "species_reptiles": "number",
+                  "records_insects": "number",
+                  "species_insects": "number",
+                  "threatened_species": "number"
+                }
+              }
+            },
+            "key": "lga",
+            "fields": [
+              "population_2025",
+              "area_km2",
+              "density_per_km2",
+              "species_birds",
+              "species_mammals",
+              "species_reptiles",
+              "species_insects",
+              "threatened_species"
+            ]
+          }
+        },
+        {
+          "calculate": "grp == 'Birds' ? datum.species_birds : grp == 'Mammals' ? datum.species_mammals : grp == 'Reptiles' ? datum.species_reptiles : datum.species_insects",
+          "as": "value"
+        }
+      ],
+      "projection": {
+        "type": "conicEqualArea",
+        "parallels": [
+          -18,
+          -36
+        ],
+        "rotate": [
+          -132,
+          0
+        ]
+      },
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#f5f6f1",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "color": {
+          "field": "value",
+          "type": "quantitative",
+          "scale": {
+            "scheme": "blues",
+            "zero": false
+          },
+          "legend": {
+            "title": "Species recorded (darker = more)",
+            "orient": "bottom",
+            "direction": "horizontal",
+            "gradientLength": 220,
+            "format": ",.0f"
+          }
+        },
+        "strokeWidth": {
+          "condition": {
+            "param": "hov",
+            "empty": false,
+            "value": 3
+          },
+          "value": 0.8
+        },
+        "stroke": {
+          "condition": {
+            "param": "hov",
+            "empty": false,
+            "value": "#22211d"
+          },
+          "value": "#f5f6f1"
+        },
+        "tooltip": [
+          {
+            "field": "lga",
+            "title": "Local government area"
+          },
+          {
+            "field": "city",
+            "title": "City"
+          },
+          {
+            "field": "value",
+            "title": "Species recorded (selected group)",
+            "format": ","
+          },
+          {
+            "field": "population_2025",
+            "title": "Population (June 2025)",
+            "format": ","
+          },
+          {
+            "field": "density_per_km2",
+            "title": "People per km²",
+            "format": ",.0f"
+          },
+          {
+            "field": "threatened_species",
+            "title": "Threatened species (all groups)"
+          }
+        ]
+      }
+    },
+    {
+      "name": "scatter",
+      "width": 440,
+      "height": 420,
+      "data": {
+        "url": "data/lga_population_and_wildlife.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "population_2025": "number",
+            "area_km2": "number",
+            "density_per_km2": "number",
+            "records_birds": "number",
+            "species_birds": "number",
+            "records_mammals": "number",
+            "species_mammals": "number",
+            "records_reptiles": "number",
+            "species_reptiles": "number",
+            "records_insects": "number",
+            "species_insects": "number",
+            "threatened_species": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "calculate": "grp == 'Birds' ? datum.species_birds : grp == 'Mammals' ? datum.species_mammals : grp == 'Reptiles' ? datum.species_reptiles : datum.species_insects",
+          "as": "value"
+        },
+        {
+          "calculate": "datum.city == city ? 1 : 0",
+          "as": "sel"
+        }
+      ],
+      "layer": [
+        {
+          "mark": {
+            "type": "line",
+            "color": "#55534d",
+            "strokeDash": [
+              6,
+              4
+            ],
+            "strokeWidth": 1.6
+          },
+          "transform": [
+            {
+              "calculate": "log(datum.density_per_km2) / LN10",
+              "as": "logd"
+            },
+            {
+              "regression": "value",
+              "on": "logd",
+              "method": "linear"
+            },
+            {
+              "calculate": "pow(10, datum.logd)",
+              "as": "density_per_km2"
+            }
+          ],
+          "encoding": {
+            "x": {
+              "field": "density_per_km2",
+              "type": "quantitative"
+            },
+            "y": {
+              "field": "value",
+              "type": "quantitative"
+            }
+          }
+        },
+        {
+          "name": "scatterpts",
+          "mark": {
+            "type": "circle",
+            "stroke": "#ffffff",
+            "strokeWidth": 1
+          },
+          "encoding": {
+            "x": {
+              "field": "density_per_km2",
+              "type": "quantitative",
+              "scale": {
+                "type": "log",
+                "domain": [
+                  10,
+                  10000
+                ]
+              },
+              "axis": {
+                "title": "People per km² (log scale) →  more crowded",
+                "format": ",",
+                "values": [
+                  10,
+                  30,
+                  100,
+                  300,
+                  1000,
+                  3000,
+                  10000
+                ]
+              }
+            },
+            "y": {
+              "field": "value",
+              "type": "quantitative",
+              "scale": {
+                "zero": true
+              },
+              "axis": {
+                "title": "Species recorded (selected group)"
+              }
+            },
+            "color": {
+              "condition": {
+                "test": "datum.city == city",
+                "value": {
+                  "expr": "{'Birds':'#2a78d6','Mammals':'#e34948','Reptiles':'#1baf7a','Insects':'#eda100'}[grp] || '#4b4a45'"
+                }
+              },
+              "value": "#d6d1c5"
+            },
+            "size": {
+              "condition": {
+                "param": "hov",
+                "empty": false,
+                "value": 260
+              },
+              "value": 70
+            },
+            "order": {
+              "field": "sel"
+            },
+            "tooltip": [
+              {
+                "field": "lga",
+                "title": "Local government area"
+              },
+              {
+                "field": "city",
+                "title": "City"
+              },
+              {
+                "field": "value",
+                "title": "Species recorded (selected group)",
+                "format": ","
+              },
+              {
+                "field": "population_2025",
+                "title": "Population (June 2025)",
+                "format": ","
+              },
+              {
+                "field": "density_per_km2",
+                "title": "People per km²",
+                "format": ",.0f"
+              },
+              {
+                "field": "threatened_species",
+                "title": "Threatened species (all groups)"
+              }
+            ]
+          }
+        },
+        {
+          "transform": [
+            {
+              "filter": {
+                "param": "hov",
+                "empty": false
+              }
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "dy": -14,
+            "fontWeight": 700,
+            "fontSize": 12,
+            "color": "#22211d"
+          },
+          "encoding": {
+            "x": {
+              "field": "density_per_km2",
+              "type": "quantitative"
+            },
+            "y": {
+              "field": "value",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "lga"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "spacing": 40,
+  "config": {
+    "font": "Source Sans 3",
+    "background": null,
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelColor": "#55534d",
+      "titleColor": "#55534d",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "gridColor": "#e1e4da",
+      "domainColor": "#c9c5ba",
+      "tickColor": "#c9c5ba",
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3"
+    },
+    "legend": {
+      "labelColor": "#55534d",
+      "titleColor": "#55534d",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3"
+    },
+    "header": {
+      "labelColor": "#22211d",
+      "labelFontSize": 14,
+      "labelFontWeight": 600,
+      "labelFont": "Source Sans 3",
+      "titleFontSize": 0
+    },
+    "text": {
+      "font": "Source Sans 3",
+      "color": "#55534d"
+    },
+    "tooltip": {
+      "content": "data"
+    }
+  }
+}

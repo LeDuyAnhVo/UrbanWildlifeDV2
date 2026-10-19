@@ -1,0 +1,136 @@
+city|lga|recAves|recMam|recRep|recIns|spAves|spMam|spRep|spIns|thrSp
+Greater Sydney|Central Coast (NSW)|350253|15181|6233|9682|378|93|81|1024|51
+Greater Sydney|Blue Mountains|267600|7922|3925|31058|263|67|62|2242|22
+Greater Sydney|Northern Beaches|182167|55861|5652|11387|332|77|70|1124|43
+Greater Sydney|Hawkesbury|232507|12471|1729|4573|304|75|57|790|28
+Greater Sydney|Sutherland|199876|9105|3107|7683|331|64|67|892|41
+Greater Sydney|Randwick|158343|2770|934|4502|268|41|41|515|29
+Greater Sydney|Parramatta|151351|4502|1622|8307|251|49|42|1003|16
+Greater Sydney|Penrith|126446|5501|2460|3945|286|61|58|588|19
+Greater Sydney|Camden|113774|1628|1165|2023|235|54|39|419|16
+Greater Sydney|Bayside (NSW)|113807|1225|651|1674|233|32|36|325|11
+Greater Sydney|Sydney|95365|3742|845|8193|227|44|34|673|13
+Greater Sydney|Georges River|84816|1981|584|1418|206|44|30|313|11
+Greater Sydney|The Hills|75048|4595|1782|3430|261|63|51|577|20
+Greater Sydney|Hornsby|66750|5230|2463|9681|231|56|50|886|17
+Greater Sydney|Campbelltown (NSW)|64528|14387|1754|2436|237|58|55|496|17
+Greater Sydney|Canterbury-Bankstown|63050|2742|1412|3949|224|42|40|615|11
+Greater Sydney|Ku-ring-gai|45016|9483|2145|9719|202|53|48|875|14
+Greater Sydney|Blacktown|47928|7144|2707|2684|251|56|48|469|22
+Greater Sydney|Ryde|49902|3098|1083|6148|189|35|36|750|6
+Greater Sydney|Wollondilly|38460|9016|2215|2574|248|73|63|528|21
+Greater Sydney|Inner West|35217|4198|701|4417|195|37|30|511|12
+Greater Sydney|North Sydney|23846|3191|581|2716|152|28|25|507|4
+Greater Sydney|Cumberland|22275|1514|1035|4450|195|37|30|695|6
+Greater Sydney|Liverpool|17641|1931|1306|2658|233|48|46|409|17
+Greater Sydney|Willoughby|17369|2666|549|1442|153|26|29|330|8
+Greater Sydney|Woollahra|15501|2600|266|797|154|33|33|192|9
+Greater Sydney|Fairfield|15530|1134|573|521|178|40|30|181|7
+Greater Sydney|Mosman|12068|2015|639|1413|155|32|25|278|8
+Greater Sydney|Canada Bay|12232|1743|243|1315|156|21|20|266|6
+Greater Sydney|Strathfield|14227|487|107|285|132|21|19|107|5
+Greater Sydney|Waverley|10819|1923|162|626|142|26|27|155|13
+Greater Sydney|Lane Cove|7386|1388|176|1157|129|19|21|228|4
+Greater Sydney|Hunters Hill|8512|557|153|313|109|15|19|114|4
+Greater Sydney|Burwood|2583|390|38|362|85|11|11|120|2
+Greater Melbourne|Yarra Ranges|342150|14219|1525|70404|245|53|33|2389|24
+Greater Melbourne|Melbourne|368721|529|283|9269|208|15|15|628|10
+Greater Melbourne|Wyndham|251136|648|334|1741|261|33|18|293|26
+Greater Melbourne|Knox|227886|1191|298|10785|216|26|17|930|10
+Greater Melbourne|Hobsons Bay|236228|272|175|1312|242|17|14|242|20
+Greater Melbourne|Mornington Peninsula|208848|2557|1043|19033|252|40|24|1523|25
+Greater Melbourne|Whittlesea|212712|1421|475|4222|235|40|29|657|17
+Greater Melbourne|Monash|207334|512|186|5030|205|18|11|579|8
+Greater Melbourne|Darebin|183572|731|495|14742|178|19|19|969|10
+Greater Melbourne|Casey|168794|8145|835|21194|240|31|23|1280|19
+Greater Melbourne|Kingston (Vic.)|184075|450|234|8879|204|17|15|940|11
+Greater Melbourne|Whitehorse|150136|1060|307|15495|181|21|13|1110|8
+Greater Melbourne|Nillumbik|133507|2315|501|17729|225|40|28|1448|14
+Greater Melbourne|Banyule|125922|706|307|6133|195|20|17|710|10
+Greater Melbourne|Hume|118530|954|267|10668|201|30|23|1277|11
+Greater Melbourne|Cardinia|104847|4582|633|17980|245|42|28|1343|19
+Greater Melbourne|Merri-bek|104455|290|245|10027|170|14|17|669|8
+Greater Melbourne|Frankston|76277|662|417|20176|221|20|21|1423|12
+Greater Melbourne|Manningham|74378|6221|315|13599|189|27|21|1170|9
+Greater Melbourne|Bayside (Vic.)|69762|217|149|8996|199|20|18|869|16
+Greater Melbourne|Boroondara|71066|783|244|4461|153|20|13|550|8
+Greater Melbourne|Maribyrnong|67818|229|84|2255|166|14|13|310|7
+Greater Melbourne|Port Phillip|60966|145|45|1561|168|10|8|295|4
+Greater Melbourne|Moonee Valley|55496|171|89|3178|153|12|11|420|5
+Greater Melbourne|Melton|53681|532|1033|1759|203|30|16|301|13
+Greater Melbourne|Greater Dandenong|44905|179|93|3431|201|19|11|517|12
+Greater Melbourne|Yarra|42322|226|223|4652|144|17|16|421|6
+Greater Melbourne|Maroondah|38109|659|176|4990|161|19|13|680|8
+Greater Melbourne|Brimbank|31886|243|215|2932|179|22|20|467|7
+Greater Melbourne|Stonnington|33198|94|62|1463|114|11|11|290|5
+Greater Melbourne|Glen Eira|30537|168|47|3764|127|10|7|455|3
+Greater Melbourne|Macedon Ranges|41068|1593|331|4831|205|36|28|818|11
+Greater Brisbane|Brisbane|1963045|13429|10793|142767|372|62|84|3294|36
+Greater Brisbane|Moreton Bay|976105|3044|2752|75522|351|68|74|3333|30
+Greater Brisbane|Logan|207068|2070|1114|11661|257|44|52|1264|10
+Greater Brisbane|Ipswich|202759|1172|946|9602|272|49|58|1293|13
+Greater Brisbane|Redland|157427|5675|651|8810|303|36|45|1074|30
+Greater Brisbane|Somerset|130340|1402|764|9641|294|51|65|1496|14
+Greater Perth|Stirling|160832|55|818|3953|194|12|28|348|11
+Greater Perth|Cockburn|149450|368|3599|3055|221|16|35|486|24
+Greater Perth|Swan|81382|5286|1139|4970|191|32|55|739|11
+Greater Perth|Kalamunda|64692|165|279|3100|170|13|33|544|9
+Greater Perth|Joondalup|56227|117|1117|1089|183|9|22|209|8
+Greater Perth|Mandurah|56614|978|112|611|159|9|22|170|0
+Greater Perth|Wanneroo|52099|191|2088|2763|209|13|43|434|18
+Greater Perth|Mundaring|32225|5336|280|2393|157|19|32|418|5
+Greater Perth|Melville|37324|29|382|1038|133|6|16|215|0
+Greater Perth|Rockingham|36719|64|377|1499|193|12|29|319|11
+Greater Perth|Armadale|34120|238|298|2116|161|10|34|395|4
+Greater Perth|Cambridge|34834|18|244|1456|134|4|21|257|1
+Greater Perth|Canning|34001|45|359|463|147|8|20|134|9
+Greater Perth|Perth|32431|50|162|1922|148|7|15|308|1
+Greater Perth|Murray|30438|339|169|1523|199|19|30|281|19
+Greater Perth|Bayswater|27665|37|302|905|154|11|20|190|15
+Greater Perth|South Perth|27682|20|188|248|117|5|7|98|0
+Greater Perth|Belmont|22807|4|296|557|133|4|12|166|0
+Greater Perth|Gosnells|21499|56|77|746|171|10|21|189|12
+Greater Perth|Serpentine-Jarrahdale|12024|181|149|1317|157|12|37|275|6
+Greater Perth|Claremont|13051|5|139|114|109|3|5|45|0
+Greater Perth|Vincent|12435|3|52|477|90|1|5|126|0
+Greater Perth|Victoria Park|12053|33|42|205|137|10|10|75|9
+Greater Perth|Fremantle|11720|17|34|239|120|5|7|77|0
+Greater Perth|Bassendean|8316|1|22|202|104|1|5|63|0
+Greater Perth|Nedlands|7253|30|59|629|131|6|14|166|16
+Greater Perth|Kwinana|5553|54|80|755|131|9|16|204|6
+Greater Perth|Subiaco|2579|1|76|84|79|1|6|32|0
+Greater Perth|Cottesloe|1820|2|5|49|65|1|4|23|0
+Greater Perth|Mosman Park|886|9|32|178|74|5|10|64|0
+Greater Perth|East Fremantle|905|2|8|54|54|1|4|31|0
+Greater Perth|Peppermint Grove|456|0|0|18|48|0|0|8|0
+Greater Adelaide|Onkaparinga|131165|6929|936|14112|237|39|33|1013|19
+Greater Adelaide|Adelaide Hills|69321|10822|1387|13044|198|30|34|1067|9
+Greater Adelaide|Mount Barker|62943|3069|436|4052|193|25|27|543|8
+Greater Adelaide|Port Adelaide Enfield|61387|440|249|2955|202|23|20|409|13
+Greater Adelaide|Salisbury|57310|218|175|2250|225|20|20|389|19
+Greater Adelaide|Mitcham|38604|1589|704|16015|156|24|24|1226|5
+Greater Adelaide|Adelaide|40703|4262|320|6714|149|21|15|494|2
+Greater Adelaide|West Torrens|28798|139|166|3671|155|17|12|309|3
+Greater Adelaide|Marion|16786|618|388|4156|148|18|20|518|2
+Greater Adelaide|Playford|16420|271|743|3358|198|24|30|430|12
+Greater Adelaide|Tea Tree Gully|12744|893|265|4991|150|22|26|632|4
+Greater Adelaide|Charles Sturt|11108|494|202|4659|139|17|13|279|5
+Greater Adelaide|Campbelltown (SA)|8296|473|196|2312|122|16|21|391|2
+Greater Adelaide|Burnside|4605|1294|226|4690|103|18|18|606|2
+Greater Adelaide|Norwood Payneham and St Peters|3737|507|131|2361|90|15|12|338|1
+Greater Adelaide|Gawler|2245|50|38|578|101|14|9|151|1
+Greater Adelaide|Holdfast Bay|1811|440|29|559|91|7|12|147|1
+Greater Adelaide|Unley|1618|97|42|810|66|14|7|181|2
+Greater Adelaide|Walkerville|887|118|50|873|61|8|10|186|1
+Greater Adelaide|Prospect|540|282|9|331|39|8|6|100|2
+Greater Hobart|Kingborough|273121|1811|266|8015|177|38|16|1155|26
+Greater Hobart|Hobart|143987|1143|209|10118|131|28|13|1114|14
+Greater Hobart|Clarence|112513|350|60|11888|162|25|10|1066|18
+Greater Hobart|Glenorchy|40506|127|27|619|138|15|7|210|11
+Greater Hobart|Sorell|28156|311|23|848|160|26|8|249|21
+Greater Hobart|Brighton|8795|51|9|272|120|14|6|74|7
+Greater Darwin|Darwin|433073|3902|1289|6243|295|23|53|578|25
+Greater Darwin|Litchfield|141309|14038|4299|4907|275|38|72|588|23
+Greater Darwin|Palmerston|32277|20|116|2679|208|7|20|345|8
+Greater Darwin|Darwin Waterfront Precinct|5097|7|30|86|136|4|5|36|5
+Australian Capital Territory|Unincorporated ACT|1653081|13255|8108|99307|284|65|55|2966|37
