@@ -3,8 +3,7 @@
 FIT3179 Data Visualisation 2 · Monash University · Semester 2, 2026
 Topic 15, *Urban Wildlife*: compare observations of birds, mammals, reptiles and insects across Australian cities to explore how biodiversity changes in urban areas.
 
-**Live page:** `https://leduyanhvo.github.io/UrbanWildlifeDV2/`
-**Author:** [YOUR NAME] · October 2026
+By Le Duy Anh Vo
 
 A single scrolling data story with 13 Vega-Lite / Vega visualisations (3 maps), built from two independent sources: the Atlas of Living Australia (wildlife records) and the Australian Bureau of Statistics (population and boundaries).
 
@@ -50,21 +49,3 @@ Distinct advanced idioms: 10 (three of them maps). Interactivity: group and city
 2. **Australian Bureau of Statistics** — Estimated Resident Population, 30 June 2025, ABS Data API (`https://data.api.abs.gov.au/`), dataflows `ERP_LGA2025` and `ABS_ANNUAL_ERP_ASGS2021`. CC BY 4.0.
 3. **ABS digital boundaries** (ASGS Edition 3: states and territories; LGA 2022) as distributed by geoBoundaries (`https://www.geoboundaries.org`, gbOpen AUS ADM1/ADM2). CC BY 4.0.
 
-## Run locally
-
-```bash
-python3 -m http.server 8000      # from the repository root, then open http://localhost:8000
-```
-(Opening `index.html` straight from disk will not work because browsers block `file://` data loading.)
-
-## Publish on GitHub Pages
-
-Settings → Pages → *Deploy from a branch* → Branch `main`, folder `/ (root)` → Save. The site appears at `https://leduyanhvo.github.io/UrbanWildlifeDV2/` within a minute or two.
-
-## Use of generative AI
-
-Claude (Anthropic) was used to help locate and extract the data through the ALA and ABS APIs, write the data-preparation scripts, draft and test the Vega-Lite specifications, and draft and proof-read the narrative text. All numbers were checked against the source extracts (record-count checksums are reproduced by `build.sh`).
-
-## Licence
-
-Code: MIT. Text and figures: CC BY 4.0. Data remain under their original licences (see above).
