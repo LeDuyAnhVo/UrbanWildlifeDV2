@@ -273,7 +273,12 @@
         <p>Each wedge is one month, starting with January at the top and going clockwise. The dashed ring shows an average month. 
           Wedges that reach past it are busier than usual, and faded wedges are quieter. Pick a city to compare.</p>
       </div>
+      <div class="view-toggle" role="group" aria-label="Chart view">
+      <button type="button" id="btn-circle" class="active" aria-pressed="true">Circle view</button>
+      <button type="button" id="btn-line" aria-pressed="false">Line view</button>
+      </div>
       <div id="ch-radial" class="chart"></div>
+      <div id="ch-lines" class="chart" style="display:none"></div>
     </figure>
     <div class="two-col even">
       <div class="callout">In Melbourne, <strong>October and November</strong> each bring about twice as many reptile sightings as an average month, 
@@ -333,13 +338,37 @@
     ["#ch-mammals", "specs/10_mammals_small_multiples.vl.json"],
     ["#ch-threat", "specs/11_threatened.vl.json"],
     ["#ch-radial", "specs/12_radial_seasons.vl.json"],
+    ["#ch-lines", "specs/12b_season_lines.vl.json"],
     ["#ch-heat", "specs/13_season_heatmap.vl.json"],
   ];
   const opts = { renderer: "svg", actions: { export: true, source: true, compiled: false, editor: true } };
   // wait for the web fonts so Vega measures label widths with the same font it draws with
+  // ---- circle / line view for the seasonal chart ----
+  const seasonViews = {};
+  function linkSeasonCharts() {
+    const radial = seasonViews.radial, lines = seasonViews.lines;
+    if (!radial || !lines) return;
+    // the line chart always shows the same city as the circle chart
+    lines.signal("city", radial.signal("city")).runAsync();
+    radial.addSignalListener("city", (name, value) => lines.signal("city", value).runAsync());
+  }
+  const btnCircle = document.getElementById("btn-circle"), btnLine = document.getElementById("btn-line");
+  function showSeasonView(line) {
+    // hide the circles but keep the City menu, so it still works in the line view
+    document.querySelectorAll("#ch-radial .chart-wrapper > svg, #ch-radial > details").forEach(n => n.style.display = line ? "none" : "");
+    document.getElementById("ch-lines").style.display = line ? "" : "none";
+    btnCircle.classList.toggle("active", !line); btnLine.classList.toggle("active", line);
+    btnCircle.setAttribute("aria-pressed", String(!line)); btnLine.setAttribute("aria-pressed", String(line));
+  }
+  btnCircle.addEventListener("click", () => showSeasonView(false));
+  btnLine.addEventListener("click", () => showSeasonView(true));
   const fontsReady = document.fonts ? Promise.race([document.fonts.ready, new Promise(r => setTimeout(r, 2500))]) : Promise.resolve();
   fontsReady.then(() => { for (const [el, spec] of charts) {
-    vegaEmbed(el, spec, opts).catch(err => {
+      vegaEmbed(el, spec, opts).then(res => {
+        if (el === "#ch-radial") seasonViews.radial = res.view;
+        if (el === "#ch-lines") seasonViews.lines = res.view;
+        linkSeasonCharts();
+    }).catch(err => {
       document.querySelector(el).innerHTML = '<p style="color:#b00">Chart failed to load: ' + err.message + '</p>';
       console.error(spec, err);
     });
