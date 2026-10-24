@@ -15,13 +15,13 @@
 
 | Source | Author / publisher | What it provides | Relevance |
 |---|---|---|---|
-| Atlas of Living Australia, occurrence records (biocache web service), accessed 12 Oct 2026 | ALA (CSIRO-hosted national biodiversity infrastructure), aggregating eBird Australia, iNaturalist Australia, BirdLife Australia Birdata, state wildlife atlases and others | Counts of wildlife records and of distinct species, 2020–2024, for each capital, each council area (LGA), each ABS remoteness class, each month, each year (2010–2025), each contributing dataset, and a 0.02° grid over Melbourne; top-10 species per city and group; EPBC threatened-species counts | The core evidence of which animals are seen where and when |
+| Atlas of Living Australia, occurrence records (biocache web service), accessed 12 Oct 2026 | ALA (CSIRO-hosted national biodiversity infrastructure), aggregating eBird Australia, iNaturalist Australia, BirdLife Australia Birdata, state wildlife atlases and others | Counts of wildlife records and of distinct species, 2020–2024, for each capital, each council area (LGA), each ABS remoteness class, each month, each year (2010–2024), each contributing dataset, and a 0.02° grid over Melbourne; top-10 species per city and group; EPBC threatened-species counts | The core evidence of which animals are seen where and when |
 | Estimated Resident Population, 30 June 2025 (ABS Data API) | Australian Bureau of Statistics | Population of each capital and each LGA | Turns wildlife counts into a comparison against how crowded an area is (population density) |
 | ASGS Edition 3 digital boundaries (states; LGA 2022) via geoBoundaries | ABS (redistributed by geoBoundaries, William & Mary) | Map geometry and LGA areas | Needed for the three maps and for density = population ÷ area |
 
 **Creation process.** Aggregated counts were requested from the ALA and ABS APIs with fixed filters (present, spatially valid records; classes Aves, Mammalia, Reptilia, Insecta; 2020–2024 so that every major dataset's uploads are complete). The raw responses are saved unchanged in `data-prep/raw/` and verified with record-count checksums. A short Python script reformats them into tidy CSV files; the only derived values are shares, ranks, a per-month index (month ÷ average month) and population density. Boundaries were simplified with mapshaper to keep the whole page under 1 MB of data. No values were estimated or edited.
 
-**Caveats shown on the page.** Records measure observer effort as well as wildlife; the story therefore compares species counts where possible, explains the eBird/iNaturalist effect, labels the incomplete 2025 year, and notes that crowded LGAs are also smaller.
+**Caveats shown on the page.** Records measure observer effort as well as wildlife; the story therefore compares species counts where possible, explains the eBird/iNaturalist effect, leaves out 2025 because that year is not complete yet, and notes that crowded LGAs are also smaller.
 
 ## iii. How — idioms and rationale
 
@@ -30,7 +30,7 @@
 | 1 | Proportional symbol map (equal-area Albers, parallels 18°S/36°S) | Compare species totals between cities in their real locations | Point marks; area = species; position = city; dropdown filters the animal group |
 | 2 | Marimekko chart | See both how many species each city has and what share each group makes up | Rect marks; width = species total, height = share, colour hue = group |
 | 3 | Paired waffle charts | Contrast share of sightings with share of species (91 % birds vs 91 % insects) | 100 unit squares; colour hue = group; count of squares = percentage |
-| 4 | Multi-line chart (log scale) | Compare growth rates of records over time | Line marks; slope on log scale = growth rate; legend click highlights a group; dashed segment = incomplete year |
+| 4 | Multi-line chart (log scale) | Compare growth rates of records over time | Line marks; slope on log scale = growth rate; legend click highlights a group
 | 5 | Treemap (Vega) | Part-to-whole of the datasets behind the records | Nested rect area = records (toggle true / square-root area); hue = group |
 | 6 | Slope graph | Compare species counts in major cities vs very remote areas for each group | Line slope = change; log position; direct labels with multipliers |
 | 7 | Choropleth map linked to a scatterplot | Find council areas with more or fewer species, then test the pattern against population density | Area colour (single-hue sequential) = species; scatter x = density (log), y = species; shared city/group dropdowns and a two-way hover highlight |
