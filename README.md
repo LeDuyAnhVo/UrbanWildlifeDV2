@@ -1,4 +1,4 @@
-# Wild Neighbours — Urban Wildlife in Australia's Capital Cities
+# Urban Wildlife — Urban Wildlife in Australia's Capital Cities
 
 FIT3179 Data Visualisation 2 · Monash University · Semester 2, 2026
 Topic 15, *Urban Wildlife*: compare observations of birds, mammals, reptiles and insects across Australian cities to explore how biodiversity changes in urban areas.
