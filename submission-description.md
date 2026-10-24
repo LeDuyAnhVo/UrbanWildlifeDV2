@@ -1,4 +1,4 @@
-# Submission description — Wild Neighbours (FIT3179 Data Visualisation 2)
+# Submission description — Urban Wildlife (FIT3179 Data Visualisation 2)
 
 **Visualisation URL:** https://leduyanhvo.github.io/UrbanWildlifeDV2/
 **Sketch (PDF):** https://github.com/LeDuyAnhVo/UrbanWildlifeDV2/blob/main/sketch/sketch.pdf
