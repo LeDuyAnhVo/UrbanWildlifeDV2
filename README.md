@@ -29,7 +29,7 @@ A single scrolling data story with 13 Vega-Lite / Vega visualisations (3 maps), 
 | 1 | Species recorded per capital | **Proportional symbol map** (Albers equal-area) | ✔ map |
 | 2 | What each city's species list is made of | **Marimekko** (variable-width stacked) | ✔ |
 | 3 | Share of sightings vs share of species | **Waffle charts** (unit charts) | ✔ |
-| 4 | Records per year, 2010–2025 | Multi-line chart, log scale | basic |
+| 4 | Records per year, 2010 - 2024 | Multi-line chart, log scale | basic |
 | 5 | Which datasets supply the records | **Treemap** (Vega) | ✔ |
 | 6 | Major cities vs very remote Australia | **Slope graph** | ✔ |
 | 7a | Species per council area | **Choropleth map** (linked) | ✔ map |
@@ -45,7 +45,7 @@ Distinct advanced idioms: 10 (three of them maps). Interactivity: group and city
 
 ## Data sources
 
-1. **Atlas of Living Australia** — occurrence records, biocache web service (`https://biocache-ws.ala.org.au/ws/`), accessed 12 Oct 2026. Filters: classes Aves, Mammalia, Reptilia, Insecta; years 2020–2024 (2010–2025 for the trend chart); `occurrenceStatus:PRESENT`; `spatiallyValid:true`. Counts are facet totals by the ALA's ABS Greater Capital City Statistical Area 2021 (`cl11166`), Local Government Area 2023 (`cl11170`), Remoteness Area 2016 (`cl10936`) and 0.02° grid (`point-0.02`) fields. Species counts are distinct values of the `species` field. Threatened = records carrying an EPBC status (`countryConservation`). Records are contributed by many datasets (eBird Australia, iNaturalist Australia, BirdLife Australia Birdata, NSW BioNet and others) under their own licences.
+1. **Atlas of Living Australia** — occurrence records, biocache web service (`https://biocache-ws.ala.org.au/ws/`), accessed 12 Oct 2026. Filters: classes Aves, Mammalia, Reptilia, Insecta; years 2020–2024 (2010–2024 for the trend chart); `occurrenceStatus:PRESENT`; `spatiallyValid:true`. Counts are facet totals by the ALA's ABS Greater Capital City Statistical Area 2021 (`cl11166`), Local Government Area 2023 (`cl11170`), Remoteness Area 2016 (`cl10936`) and 0.02° grid (`point-0.02`) fields. Species counts are distinct values of the `species` field. Threatened = records carrying an EPBC status (`countryConservation`). Records are contributed by many datasets (eBird Australia, iNaturalist Australia, BirdLife Australia Birdata, NSW BioNet and others) under their own licences.
 2. **Australian Bureau of Statistics** — Estimated Resident Population, 30 June 2025, ABS Data API (`https://data.api.abs.gov.au/`), dataflows `ERP_LGA2025` and `ABS_ANNUAL_ERP_ASGS2021`. CC BY 4.0.
 3. **ABS digital boundaries** (ASGS Edition 3: states and territories; LGA 2022) as distributed by geoBoundaries (`https://www.geoboundaries.org`, gbOpen AUS ADM1/ADM2). CC BY 4.0.
 
