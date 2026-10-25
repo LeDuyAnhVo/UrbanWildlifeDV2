@@ -147,7 +147,7 @@
                 "symbolStrokeColor": "#ffffff",
                 "format": ",.0f",
                 "direction": "vertical",
-                 "values": [1000, 2000, 3000, 4000]
+                "tickCount": 4
               }
             },
             "tooltip": [
