@@ -1,4 +1,4 @@
-# Urban Wildlife — Urban Wildlife in Australia's Capital Cities
+# Urban Wildlife in Australia's Capital Cities
 
 FIT3179 Data Visualisation 2 · Monash University · Semester 2, 2026
 Topic 15, *Urban Wildlife*: compare observations of birds, mammals, reptiles and insects across Australian cities to explore how biodiversity changes in urban areas.
@@ -19,8 +19,7 @@ A single scrolling data story with 13 Vega-Lite / Vega visualisations (3 maps), 
 | `data-prep/make_specs.py` | Generates every file in `specs/` with shared colours, fonts and projection. |
 | `data-prep/build.sh` | Rebuilds `data/` and `specs/` from scratch (downloads the ABS boundary files, simplifies them with mapshaper). |
 | `data-prep/render_check.mjs` | Renders every spec headlessly to catch errors. |
-| `sketch/` | Put `sketch.pdf` (the hand-drawn Week 7 sketch) here. |
-| `submission-description.md` | Domain / who / why / what / how text for the Moodle template. |
+The hand-drawn sketch (sketch.pdf).
 
 ## The 13 visualisations
 
